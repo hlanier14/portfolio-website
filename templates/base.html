@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+<style>
+
+@media screen and (min-width: 750px) {
+    #sections {
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .navbar .navbar-brand {
+        font-size:30px;
+    }
+
+    #calculator-results {
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    #results .row {
+        padding-right: 50px;
+     }
+
+    .navbar img {
+        padding-right: 15px;
+        height: 70px;
+        width:auto;
+     }
+
+     #home-btn {
+        width: 75%;
+     }
+    
+    #content-wrap {
+        padding-top: 8rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #sections {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .navbar .navbar-brand {
+        font-size:15px;
+    }
+
+    .navbar img {
+        height: 50px;
+        width: 50px;
+        padding-right: 5px;
+    }
+
+    #calculator-results {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+    #results .row {
+        padding-right: 15px;
+     }
+
+    #home-btn {
+        width: 90%;
+    }
+    
+    #content-wrap {
+        padding-top: 6rem;
+    }
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='SteelBlue' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler-icon:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='GhostWhite' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+#container {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content-wrap {
+    padding-bottom: 20rem;
+    font-family: "Microsoft JhengHei UI", Sitka, sans;
+}
+
+#content-wrap h1 {
+    color: SteelBlue;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#content-wrap p {
+    font-size: 18px;
+    line-height: 35px;
+}
+
+#content-wrap ul {
+    font-size: 18px;
+    line-height: 35px;
+}
+
+#content-wrap h2 {
+    font-weight: bold;
+}
+
+#warren-quote {
+    background-color: #E5E7E9;
+    color: #17202A;
+    font-size: 25px;
+    text-align: center;
+    border-style: solid;
+    border-color: black;
+    border-width: 0px 5px;
+    margin: 7%;
+    padding: 5%;
+}
+
+#home-btn {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    color: SteelBlue;
+    border-color: SteelBlue;
+    font-weight: bold;
+}
+
+#home-btn:hover {
+    color: #FBFCFC;
+    background-color: SteelBlue;
+}
+
+#content-wrap img {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+#results {
+    border: 15px;
+    border-style: solid;
+    border-color: SteelBlue;
+    background: GhostWhite;
+    margin: auto;
+    padding: 50px;
+}
+
+
+#results .row {
+    padding-bottom: 25px;
+}
+
+.row label {
+    float: left;
+    width: 75%;
+    padding-right: 15px;
+    text-align: right;
+}
+
+.row input {
+    float: right;
+    width: 25%;
+    height: 35px;
+}
+
+.row input:focus {
+    outline: none;
+    border:1px solid SteelBlue;
+    box-shadow: 0 0px 5px SteelBlue;
+}
+
+form .btn:focus {
+    outline: none;
+    border:1px solid SteelBlue;
+    box-shadow: 0 0px 5px SteelBlue;
+}
+
+form .btn {
+    width: 75%;
+    background-color: SteelBlue;
+    color: #FBFCFC;
+    font-weight: bold;
+    border-color: SteelBlue;
+}
+
+form .btn:hover {
+    border-style: solid;
+    border-color: SteelBlue;
+    background-color: GhostWhite;
+    color: SteelBlue;
+}
+
+.table-text-center th, .table-text-center td {
+    text-align: center;
+    font-size: 15px;
+    white-space: nowrap;
+    background-color: #283747;
+    color: #FBFCFC;
+}
+
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+}
+
+#footer .nav-link {
+    color: SteelBlue;
+    font-family:'Franklin Gothic Book', Courier, monospace;
+    font-size: 20px;
+}
+
+#footer .nav-link:hover {
+    color: GhostWhite;
+}
+
+.navbar-nav > li > a:hover{
+    border-bottom: 2px solid SteelBlue;
+    border-top: 2px solid SteelBlue;
+    font-color: GhostWhite;
+}
+
+.navbar-nav > li > a {
+    margin-inline-start: 25px;
+    margin-inline-end: 25px;
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+}
+
+
+</style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Harrison Lanier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body style="background-color: #FBFCFC;">
+
+<div id="container">
+
+<nav class="navbar fixed-top navbar-expand-lg" style="background-color:#17202A;">
+  <a class="navbar-brand" href="/" style="font-family:'Bahnschrift Light',Courier,monospace; color:GhostWhite;font-weight: bold;">Harrison Lanier</a>
+  <button class="navbar-toggler" style="border-color:SteelBlue" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse " id="navbarNavDropdown" style="font-family:'Franklin Gothic Book',Courier,monospace; font-size:20px;text-align: center;">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" >
+        <a class="nav-link" href="/resume" style="color:SteelBlue;">RESUME</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+   <div id="content-wrap">
+    {% block content %}
+    {% endblock %}
+   </div>
+
+<footer id="footer">
+<ul class="nav justify-content-center"
+    style="background-color:#17202A;padding-bottom:5rem;padding-top:2.5rem">
+  <li class="nav-item">
+    <a class="nav-link active" href="/">HOME</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/resume">RESUME</a>
+  </li>
+
+</ul>
+</footer>
+ </div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+</script>
+
+</body>
+</html>
