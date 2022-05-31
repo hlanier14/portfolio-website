@@ -8,12 +8,10 @@ import datetime as dt
 app = Flask(__name__)
 
 @app.route("/")
-def home():
-    return render_template("home.html")
+def index():
+    return render_template("index.html")
 
-@app.route("/resume")
-def resume():
-    return render_template("resume.html")
+"""
 
 def getEthPrice():
     URL = "https://coinmarketcap.com/currencies/ethereum/"
@@ -28,7 +26,7 @@ def ethereum_api():
     data_set = {'Asset': 'Ethereum', 'Source': 'Coin Market Cap', 'Current Price': str(price), 'TimeStamp': dt.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")}
     return json.dumps(data_set)
 
-"""
+
 Projects to include:
     - Crypto portfolio tracker
         - Create a webpage where people can input addresses and create a portfolio view
@@ -48,6 +46,11 @@ Projects to include:
 
 TODO:
     - Crypto arbitrage
+        - password protected page for arb dashboard 
+            - randomly generated, changes every couple of days? or 
+            - create username and password for users (only Walsh family)
+                - limit users by email address (only allow Walsh emails to create accounts)
+            - have button to hide money amounts and addresses
     - Machine learning algorithms
         - KNN
         - KMeansClustering
@@ -67,13 +70,18 @@ Include downloadable pdf of resume (resume page)
 
 add secret_key to app
 debugging
-password protected page for arb dashboard 
-    - randomly generated, changes every couple of days? or 
-    - create username and password for users (only Walsh family)
-        - limit users by email address (only allow Walsh emails to create accounts)
-    - have button to hide money amounts and addresses
+
+What skills do I want to present in the website? - target skills asked for in DS internships
+    1. Machine Learning
+    2. Artificial Intelligence
+    3. Data analysis
+    4. Data visualization
+    5. Statistical modeling
+    6. Automation
+    In doing above, show:
+        * Python
+        * SQL (databases)
 """
 
-
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host="0.0.0.0")
