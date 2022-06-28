@@ -7,6 +7,239 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+/* Skill bars */
+.skills {
+	display: flex;
+	justify-content: center;
+}
+.skill-left-col {
+	flex: 30%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.skill-right-col {
+	flex: 30%;
+	margin-right: 5%;
+	margin-left: 5%;
+}
+.skill-info {
+    width: 100%;
+    display: flex;  
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.skill-bar{
+    position: relative;
+    border: 2px solid #49bf9d;
+    border-radius: 20px;
+  
+}
+.skill-bar div{
+    position: relative;
+    width: 0;
+    height: 9px;
+    border-radius: 10px;
+    background-color: #49bf9d;
+}
+.skill-item:not(:last-child){
+    margin-bottom: 10px;
+}
+#skill-bar{
+    animation: html-fill 2s forwards;
+}
+@keyframes html-fill{
+    100%{
+        width: 90%;
+    }
+}
+@media(max-width: 500px) { 
+    .skills {
+       flex-direction: column;
+    }
+    .skill-left-col,
+	.skill-right-col { 
+       width: 80%;
+    }
+}
+/* End skills section */
+
+
+
+/* Timeline */
+  /* src: https://codepen.io/brady_wright/pen/NNOvrW */
+  /*-- GENERAL STYLES
+	  ------------------------------*/
+  .timeline {
+	line-height: 1.4em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+  }
+  .timeline h1,
+  .timeline h2,
+  .timeline h3,
+  .timeline h4,
+  .timeline h5,
+  .timeline h6 {
+	line-height: inherit;
+  }
+
+  .timeline h3 {
+	font-weight: bold;
+	margin-bottom: 5px;
+  }
+
+  .timeline h4 {
+	margin-bottom: 5px;
+  }
+  
+  /*----- TIMELINE ITEM -----*/
+  .timeline-item {
+	padding-left: 40px;
+	position: relative;
+  }
+  .timeline-item:last-child {
+	padding-bottom: 0;
+  }
+  
+  /*----- TIMELINE INFO -----*/
+  .timeline-info {
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 3px;
+	margin: 0 0 0.5em 0;
+	text-transform: uppercase;
+	white-space: nowrap;
+  }
+  
+  /*----- TIMELINE MARKER -----*/
+  .timeline-marker {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 15px;
+  }
+  .timeline-marker:before {
+	background: #49bf9d;
+	border: 3px solid transparent;
+	border-radius: 100%;
+	content: "";
+	display: block;
+	height: 15px;
+	position: absolute;
+	top: 4px;
+	left: 0;
+	width: 15px;
+	transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+  }
+  .timeline-marker:after {
+	content: "";
+	width: 3px;
+	background: #ccd5db;
+	display: block;
+	position: absolute;
+	top: 24px;
+	bottom: 0;
+	left: 6px;
+  }
+  .timeline-item:last-child .timeline-marker:after {
+	content: none;
+  }
+  
+  .timeline-item:not(.period):hover .timeline-marker:before {
+	background: transparent;
+	border: 3px solid #49bf9d;
+  }
+  
+  /*----- TIMELINE CONTENT -----*/
+  .timeline-content {
+	padding-bottom: 40px;
+  }
+  .timeline-content p:last-child {
+	margin-bottom: 0;
+  }
+  
+  /*----------------------------------------------
+		  MOD: TIMELINE CENTERED
+	  ----------------------------------------------*/
+  @media (min-width: 992px) {
+	.timeline-centered,
+  .timeline-centered .timeline-item,
+  .timeline-centered .timeline-info,
+  .timeline-centered .timeline-marker,
+  .timeline-centered .timeline-content {
+	  display: block;
+	  margin: 0;
+	  padding: 0;
+	}
+	.timeline-centered .timeline-item {
+	  padding-bottom: 40px;
+	  overflow: hidden;
+	}
+	.timeline-centered .timeline-marker {
+	  position: absolute;
+	  left: 50%;
+	  margin-left: -7.5px;
+	}
+	.timeline-centered .timeline-info,
+  .timeline-centered .timeline-content {
+	  width: 50%;
+	}
+	.timeline-centered > .timeline-item:nth-child(odd) .timeline-info {
+	  float: left;
+	  text-align: right;
+	  padding-right: 30px;
+	}
+	.timeline-centered > .timeline-item:nth-child(odd) .timeline-content {
+	  float: right;
+	  text-align: left;
+	  padding-left: 30px;
+	}
+	.timeline-centered > .timeline-item:nth-child(even) .timeline-info {
+	  float: left;
+	  text-align: right;
+	  padding-right: 30px;
+	}
+	.timeline-centered > .timeline-item:nth-child(even) .timeline-content {
+	  float: right;
+	  text-align: left;
+	  padding-left: 30px;
+	}
+	.timeline-centered > .timeline-item.period .timeline-content {
+	  float: none;
+	  padding: 0;
+	  width: 100%;
+	  text-align: center;
+	}
+	.timeline-centered .timeline-item.period {
+	  padding: 50px 0 90px;
+	}
+	.timeline-centered .period .timeline-marker:after {
+	  height: 30px;
+	  bottom: 0;
+	  top: auto;
+	}
+	.timeline-centered .period .timeline-title {
+	  left: auto;
+	}
+  }
+  
+  /*----------------------------------------------
+		  MOD: MARKER OUTLINE
+	  ----------------------------------------------*/
+  .marker-outline .timeline-marker:before {
+	background: transparent;
+	border-color: #ff6b6b;
+  }
+  .marker-outline .timeline-item:hover .timeline-marker:before {
+	background: #ff6b6b;
+  }
+
+/* End Timeline */
+
+
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -3220,131 +3453,3 @@ input, select, textarea {
 
 	}
 
-
-/* Experience Timeline */	
-
-
-	/* The actual timeline (the vertical ruler) */
-	.timeline {
-	position: relative;
-	max-width: 1200px;
-	margin: 0 auto;
-	}
-
-	/* The actual timeline (the vertical ruler) */
-	.timeline::after {
-	content: '';
-	position: absolute;
-	width: 3px;
-	background-color: rgb(101, 161, 211);
-	top: 0;
-	bottom: 0;
-	left: 50%;
-	margin-left: -3px;
-	}
-
-	/* Container around content */
-	.container {
-	padding: 5px 20px;
-	position: relative;
-	background-color: inherit;
-	width: 20%;
-	}
-
-	/* The circles on the timeline */
-	.container::after {
-	content: '';
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	left: 0;
-	background-color: rgb(101, 161, 211);
-	border: 4px solid #FF9F55;
-	top: 15px;
-	border-radius: 50%;
-	z-index: 1;
-	}
-
-	/* Place the container to the left */
-	.left {
-	left: 0;
-	}
-
-	/* Place the container to the right */
-	.right {
-	left: 50%;
-	}
-
-	/* Add arrows to the left container (pointing right) */
-	.left::before {
-	content: " ";
-	height: 0;
-	position: absolute;
-	top: 22px;
-	width: 0;
-	z-index: 1;
-	right: 30px;
-	border: medium solid white;
-	border-width: 10px 0 10px 10px;
-	border-color: transparent transparent transparent white;
-	}
-
-	/* Add arrows to the right container (pointing left) */
-	.right::before {
-	content: " ";
-	height: 0;
-	position: absolute;
-	top: 22px;
-	width: 0;
-	z-index: 1;
-	left: 30px;
-	border: medium solid white;
-	border-width: 10px 10px 10px 0;
-	border-color: transparent white transparent transparent;
-	}
-
-	/* Fix the circle for containers on the right side */
-	.right::after {
-	left: -16px;
-	}
-
-	/* The actual content */
-	.content {
-	padding: 20px 30px;
-	background-color: rgb(163, 181, 201);
-	position: relative;
-	border-radius: 6px;
-	}
-
-	/* Media queries - Responsive timeline on screens less than 600px wide */
-	@media screen and (max-width: 600px) {
-	/* Place the timelime to the left */
-	.timeline::after {
-		left: 31px;
-	}
-
-	/* Full-width containers */
-	.container {
-		width: 100%;
-		padding-left: 70px;
-		padding-right: 25px;
-	}
-
-	/* Make sure that all arrows are pointing leftwards */
-	.container::before {
-		left: 60px;
-		border: medium solid white;
-		border-width: 10px 10px 10px 0;
-		border-color: transparent white transparent transparent;
-	}
-
-	/* Make sure all circles are at the same spot */
-	.left::after, .right::after {
-		left: 15px;
-	}
-
-	/* Make all right containers behave like the left ones */
-	.right {
-		left: 0%;
-	}
-	}
