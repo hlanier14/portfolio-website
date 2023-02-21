@@ -1,11 +1,15 @@
-FROM node:16.15.1 as build
-WORKDIR /portfolio-website
+FROM node:14-alpine as react-build
+WORKDIR /app
+COPY . ./
+RUN npm
+RUN npm build
 
-COPY package*.json .
-RUN npm install
-COPY . .
-
-RUN npm run build
-FROM nginx:1.19
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /lit-clothing/build /usr/share/nginx/html
+# server environment
+FROM nginx:alpine
+COPY nginx.conf /etc/nginx/conf.d/configfile.template
+ENV PORT 8080
+ENV HOST 0.0.0.0
+RUN sh -c "envsubst '\$PORT'  < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf"
+COPY --from=react-build /app/build /usr/share/nginx/html
+EXPOSE 8080
+CMD ["nginx", "-g", "daemon off;"]
