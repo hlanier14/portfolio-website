@@ -4,7 +4,6 @@ import articles from "../data/articles.json";
 
 function RecentWork() {
     return (
-        <>
             <div>
                 <div class="flex items-stretch">
                     <div class="w-1/2 text-2xl mb-10">
@@ -24,14 +23,12 @@ function RecentWork() {
                         )
                     })}
                 </div>
-                <div class="flex justify-center text-2xl mt-10 ">
+                <div class="flex justify-center text-2xl my-10 ">
                     <a href="/portfolio" class="inline-flex items-center mr-2 px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700 ">
                         Full Portfolio
                     </a>
                 </div>
             </div>
-            <hr class="h-px my-8 bg-gray-200 border-0"></hr>
-        </>
     );
   }
   
