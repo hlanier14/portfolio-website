@@ -1,0 +1,113 @@
+[
+    {
+        "Company": "Parkster.ai (Techstars '22)",
+        "Title": "Co-Founder & CTO",
+        "DateRange": "August 2022 - February 2023",
+        "Description": [
+            "Trained a FCOS ResNet-50 model to detect available on-street parking spaces in real-time, served predictions on over 200 parking spaces through an API, and composed demos of parking availability use cases to win potential customers.",
+            "Built an automated application to help event attendees find the closest and cheapest parking spaces to their destination by extracting real-time parking reservation quotes from over 2k garages across multiple APIs.",
+            "Constructed a web application allowing internal team members to add events to the website during sales meetings and implemented checks to ensure data standardization."
+        ],
+        "Links": [
+            {
+                "Title": "Parkster.ai",
+                "Link": "https://parkster.ai",
+                "Icon": ""
+            },
+            {
+                "Title": "Techstars",
+                "Link":  "https://www.techstars.com/newsroom/techstars-chicago-powered-by-j-p-morgan-announces-inaugural-class-of-2022",
+                "Icon": ""
+            }
+        ], 
+        "isCurrent": false,
+        "Skills": [
+            "GCP",
+            "Docker",
+            "Python",
+            "Javascript",
+            "SQL",
+            "Pandas",
+            "PyTorch",
+            "Tensorflow",
+            "Flask",
+            "React",
+            "Express",
+            "Git",
+            "GitHub",
+            "Linux"
+        ]
+    }, 
+    {
+        "Company": "Saint Louis University",
+        "Title": "Research Assistant",
+        "DateRange": "June 2022 - August 2022",
+        "Description": [
+            "Developed a multi-user web application for annotating and storing bounding boxes on images for model training.",
+            "Trained a FCOS ResNet-50 model on over 50k images to detect furniture in hotel rooms for my professor’s research project, TraffickCam.",
+            "Researched methods to leverage detected objects to match a hotel room image to a known hotel."
+        ],
+        "Links": [
+            {
+                "Title": "TraffickCam",
+                "Link": "http://traffickcam.com/about",
+                "Icon": ""
+            }
+        ],
+        "isCurrent": false,
+        "Skills": [
+            "Python",
+            "SQL",
+            "PyTorch",
+            "CUDA",
+            "Flask",
+            "Git",
+            "GitHub"
+        ]
+    },
+    {
+        "Company": "Haven Rentals LLC",
+        "Title": "Founder",
+        "DateRange": "September 2019 - May 2022",
+        "Description": [
+            "Some description"
+        ],
+        "Links": [],
+        "isCurrent": false,
+        "Skills": [
+            "Leadership",
+            "Customer Service"
+        ]
+    },
+    {
+        "Company": "Invesco",
+        "Title": "Performance Analyst Investment Intern",
+        "DateRange": "March 2021 - August 2021",
+        "Description": [
+            "Spearheaded the first automated Power BI dashboard within the performance team to display index fund information to product managers, saving 40 hours of labor each month.",
+            "Optimized preexisting SQL queries and composed new queries to answer questions on fund performance from the portfolio management team.",
+            "Debugged and contributed to Python scripts that automate scheduled reports for portfolio managers."
+        ],
+        "Links": [],
+        "isCurrent": false,
+        "Skills": [
+            "Python",
+            "SQL",
+            "Power BI"
+        ]
+    },
+    {
+        "Company": "Willow Bend Mortgage",
+        "Title": "Technology Intern",
+        "DateRange": "May 2020 - August 2021",
+        "Description": [
+            "Implemented a predictive model to forecast company-wide and branch level production for executive leadership with 11% error based on current pipeline and historical data."
+        ],
+        "Links": [],
+        "isCurrent": false,
+        "Skills": [
+            "SQL",
+            "Domo"
+        ]
+    }
+]
