@@ -1,7 +1,8 @@
 FROM node:14-alpine as react-build
 WORKDIR /app
 COPY . ./
-RUN npm build
+RUN yarn
+RUN yarn build
 
 # server environment
 FROM nginx:alpine
