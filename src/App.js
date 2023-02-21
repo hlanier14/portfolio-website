@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SideBar from "./components/SideBar";
 import Article from "./pages/Article";
 import Home from "./pages/Home";
-import Blog from "./pages/Blog";
+import Portfolio from "./pages/Portfolio";
 import Footer from "./components/Footer";
 
 function App() {
@@ -13,8 +13,8 @@ function App() {
         <SideBar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<Article />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio/:slug" element={<Article />} />
         </Routes>
         <Footer />
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import About from "../components/About";
 import Experience from "../components/Experience";
-import BlogSection from "../components/BlogSection";
+import RecentWork from "../components/RecentWork";
 
 function Home() {
     return (
@@ -9,7 +9,7 @@ function Home() {
             <div class="grid grid-flow-row auto-rows-auto gap-4 m-10 md:m-20">
                 <About />
                 <Experience />
-                <BlogSection />
+                <RecentWork />
             </div>
         </div>
     )

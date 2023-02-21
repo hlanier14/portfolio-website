@@ -1,9 +1,9 @@
 import React from "react";
 
-function BlogTitle({ title, subtitle, date, coverImage, slug }) {
+function ArticleTile({ title, subtitle, date, coverImage, slug }) {
     return (
         <div class="rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-all ease-in">
-          <a href={ "/blog/" + slug }>
+          <a href={ "/portfolio/" + slug }>
             <img class="w-full hover:backdrop-brightness-50 " src={coverImage} alt={coverImage} />
             <div class="px-6 py-4">
               <div class="font-bold text-2xl mb-2">
@@ -21,4 +21,4 @@ function BlogTitle({ title, subtitle, date, coverImage, slug }) {
     );
   }
   
-  export default BlogTitle;
+  export default ArticleTile;

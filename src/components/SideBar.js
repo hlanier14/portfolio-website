@@ -12,7 +12,7 @@ function SideBar() {
                             <img class="rounded-full w-48 h-48" src='/profile.jpg' alt="Avatar" />
                         </a>
                     </div>
-                    <div class="text-3xl mt-12 md:mt-20 lg:mt-2 max-h-fit">
+                    <div class="text-3xl pt-5 md:pt-20 lg:pt-2 max-h-fit">
                         Harrison Lanier
                     </div>
                 </div>
@@ -20,8 +20,8 @@ function SideBar() {
                     <a href="/" class="hover:text-gray-500 justify-self-center max-w-fit">
                         Home
                     </a>
-                    <a href="/blog" class="hover:text-gray-500 justify-self-center max-w-fit">
-                        Blog
+                    <a href="/portfolio" class="hover:text-gray-500 justify-self-center max-w-fit">
+                        Portfolio
                     </a>
                 </div>
                 <div class="absolute bottom-0 w-full">
