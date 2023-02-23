@@ -7,7 +7,7 @@ function Home() {
     return (
         <div class="flex w-full md:w-2/3 bg-slate-100">
             <div class="grid grid-flow-row auto-rows-auto gap-4 m-10 md:m-20">
-                <About />
+                {/* <About /> */}
                 <Experience />
                 <RecentWork />
             </div>

@@ -4,9 +4,9 @@
         "Title": "Co-Founder & CTO",
         "DateRange": "August 2022 - February 2023",
         "Description": [
-            "Trained a FCOS ResNet-50 model to detect available on-street parking spaces in real-time, served predictions on over 200 parking spaces through an API, and composed demos of parking availability use cases to win potential customers.",
-            "Built an automated application to help event attendees find the closest and cheapest parking spaces to their destination by extracting real-time parking reservation quotes from over 2k garages across multiple APIs.",
-            "Constructed a web application allowing internal team members to add events to the website during sales meetings and implemented checks to ensure data standardization."
+            "Trained a TensorFlow object detection model to assess the availability of over 200 on-street parking spaces in real-time and composed demos in JavaScript to win potential customers.",
+            "Deployed a JavaScript application on GCP to help event attendees find close parking spots by extracting real-time quotes from over 2k parking garages across multiple third-party platforms.",
+            "Constructed a React app allowing internal team members to add events to BigQuery during sales meetings."            
         ],
         "Links": [
             {
@@ -27,15 +27,11 @@
             "Python",
             "Javascript",
             "SQL",
-            "Pandas",
-            "PyTorch",
             "Tensorflow",
             "Flask",
             "React",
             "Express",
-            "Git",
-            "GitHub",
-            "Linux"
+            "GitHub"
         ]
     }, 
     {
@@ -43,9 +39,9 @@
         "Title": "Research Assistant",
         "DateRange": "June 2022 - August 2022",
         "Description": [
-            "Developed a multi-user web application for annotating and storing bounding boxes on images for model training.",
-            "Trained a FCOS ResNet-50 model on over 50k images to detect furniture in hotel rooms for my professor’s research project, TraffickCam.",
-            "Researched methods to leverage detected objects to match a hotel room image to a known hotel."
+            "Developed a Flask application for annotating and storing bounding boxes on images for model training.",
+            "Trained a PyTorch object detection model to find furniture in hotel rooms for TraffickCam.",
+            "Researched methods to leverage detected objects to match a hotel room image to a known hotel."            
         ],
         "Links": [
             {
@@ -61,7 +57,6 @@
             "PyTorch",
             "CUDA",
             "Flask",
-            "Git",
             "GitHub"
         ]
     },
@@ -70,7 +65,7 @@
         "Title": "Founder",
         "DateRange": "September 2019 - May 2022",
         "Description": [
-            "Some description"
+            "Short-term rental company focused on providing comfortable stays for travelers in the St. Louis area"
         ],
         "Links": [],
         "isCurrent": false,
@@ -84,9 +79,9 @@
         "Title": "Performance Analyst Investment Intern",
         "DateRange": "March 2021 - August 2021",
         "Description": [
-            "Spearheaded the first automated Power BI dashboard within the performance team to display index fund information to product managers, saving 40 hours of labor each month.",
-            "Optimized preexisting SQL queries and composed new queries to answer questions on fund performance from the portfolio management team.",
-            "Debugged and contributed to Python scripts that automate scheduled reports for portfolio managers."
+            "Automated a Power BI dashboard to summarize fund data for portfolio managers, saving 40 hours a month.",
+            "Composed SQL queries to answer questions on fund performance for the portfolio management team.",
+            "Debugged and contributed to Python scripts that automated recurring reports for portfolio managers."            
         ],
         "Links": [],
         "isCurrent": false,
@@ -101,7 +96,7 @@
         "Title": "Technology Intern",
         "DateRange": "May 2020 - August 2021",
         "Description": [
-            "Implemented a predictive model to forecast company-wide and branch level production for executive leadership with 11% error based on current pipeline and historical data."
+            "Implemented a predictive model with SQL to forecast company-wide and branch level production with 11% error based on current pipeline and historical data."
         ],
         "Links": [],
         "isCurrent": false,

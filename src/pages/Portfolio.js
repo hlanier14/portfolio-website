@@ -11,8 +11,8 @@ function Portfolio() {
                     Portfolio
                 </div>
                 <hr class="h-px my-8 bg-gray-200 border-0"></hr>
-                <div class="flex p-5 md:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-                    <div class="h-1/2">
+                <div class="flex p-5 md:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-7">
+                    {/* <div class="h-1/2"> */}
                         { articles.map(function(item) {
                             return (
                                 <ArticleTile
@@ -24,7 +24,7 @@ function Portfolio() {
                                 />
                             )
                         })}
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         </div>
