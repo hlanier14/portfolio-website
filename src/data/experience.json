@@ -1,5 +1,27 @@
 [
     {
+        "Company": "Clickvoyant (Techstars '22)",
+        "Title": "Technology Contractor",
+        "DateRange": "February 2023 - Present",
+        "Description": [
+            "Automate Google Analytic reports for clients leveraging PySpark and Airflow"       
+        ],
+        "Links": [
+        ], 
+        "isCurrent": false,
+        "Skills": [
+            "Amazon S3",
+            "Airflow",
+            "Spark",
+            "Docker",
+            "Python",
+            "Google Analytics",
+            "SQL",
+            "Linux",
+            "GitHub"
+        ]
+    }, 
+    {
         "Company": "Parkster.ai (Techstars '22)",
         "Title": "Co-Founder & CTO",
         "DateRange": "August 2022 - February 2023",

@@ -18,7 +18,7 @@ function RecentWork() {
                                 subtitle={ item["Subtitle"] }
                                 date={ item["Date"] }
                                 coverImage={ item["Cover Image"] }
-                                slug={ item["Slug"] }
+                                link={ item["Link"] }
                             />
                         )
                     })}

@@ -1,24 +1,16 @@
 [
     {
-        "Title": "Create an Image Annotation Tool",
-        "Subtitle": "Make a web application to draw and save bounding boxes on images",
+        "Title": "Image Annotation Tool",
+        "Subtitle": "A flask web application to draw and save bounding boxes on images",
         "Date": "February 23th, 2023",
         "Cover Image": "image-annotator.png",
-        "Slug": "image-annotator",
-        "Text": [
-            "Article is WIP",
-            "Check out the original code <a href=\"https://github.com/SLUVisLab/image-annotator\" target=\"_blank\" rel=\"noreferrer\" class=\"leading-none text-blue-700\">here</a>."
-        ]
+        "Link": "https://github.com/SLUVisLab/image-annotator"
     },
     {
         "Title": "Featured on Tidy Tuesday!",
         "Subtitle": "My data science capstone project was selected for the weekly competition",
         "Date": "February 20th, 2023",
         "Cover Image": "tidy-tuesday.jpg",
-        "Slug": "featured-on-tidy-tuesday",
-        "Text": [
-            "My data science capstone group was focused on extracting and cleaning daily weather data from automated emails.",
-            "You can check out the dataset <a href=\"https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-12-20\" target=\"_blank\" rel=\"noreferrer\" class=\"leading-none text-blue-700\">here</a>."
-        ]
+        "Link": "https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-12-20"
     }
 ]
