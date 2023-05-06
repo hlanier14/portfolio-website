@@ -10,16 +10,16 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
-      {/* <div class="relative md:flex">
-        <SideBar /> */}
+      <div class="relative md:flex">
+        <SideBar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:slug" element={<Article />} />
           <Route path="/projects/dividend-analysis" element={<DividendAnalysis />} />
         </Routes>
-        {/* <Footer />
-      </div> */}
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
