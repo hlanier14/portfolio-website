@@ -4,14 +4,15 @@
         "Title": "Technology Contractor",
         "DateRange": "February 2023 - Present",
         "Description": [
-            "Automate Google Analytic reports for clients leveraging PySpark and Airflow"       
+            "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
+            "Optimized Google Analytics data analysis with PySpark, generating insights to boost conversion rates for clients."
         ],
         "Links": [
         ], 
         "isCurrent": false,
         "Skills": [
             "Amazon S3",
-            "Airflow",
+            "GCP",
             "Spark",
             "Docker",
             "Python",
@@ -26,14 +27,14 @@
         "Title": "Co-Founder & CTO",
         "DateRange": "August 2022 - February 2023",
         "Description": [
-            "Trained a TensorFlow object detection model to assess the availability of over 200 on-street parking spaces in real-time and composed demos in JavaScript to win potential customers.",
-            "Deployed a JavaScript application on GCP to help event attendees find close parking spots by extracting real-time quotes from over 2k parking garages across multiple third-party platforms.",
-            "Constructed a React app allowing internal team members to add events to BigQuery during sales meetings."            
+            "Developed a TensorFlow model to detect real-time availability of over 200 parking spaces with 92% accuracy.",
+            "Deployed an application on GCP to analyze parking spot pricing data for event attendees by extracting real-time quotes from 2k+ garages across multiple platforms.",
+            "Constructed a NodeJS app allowing team members to add events to an internal BigQuery database."            
         ],
         "Links": [
             {
                 "Title": "Parkster.ai",
-                "Link": "https://parkster.ai",
+                "Link": "https://parksterai.com",
                 "Icon": ""
             },
             {
@@ -52,7 +53,7 @@
             "Tensorflow",
             "Flask",
             "React",
-            "Express",
+            "ExpressJS",
             "GitHub"
         ]
     }, 
@@ -61,9 +62,8 @@
         "Title": "Research Assistant",
         "DateRange": "June 2022 - August 2022",
         "Description": [
-            "Developed a Flask application for annotating and storing bounding boxes on images for model training.",
-            "Trained a PyTorch object detection model to find furniture in hotel rooms for TraffickCam.",
-            "Researched methods to leverage detected objects to match a hotel room image to a known hotel."            
+            "Designed a Flask application for annotating and storing bounding boxes on images for model training.",
+            "Trained a PyTorch model to detect furniture in hotel rooms for TraffickCam."     
         ],
         "Links": [
             {
@@ -87,7 +87,7 @@
         "Title": "Founder",
         "DateRange": "September 2019 - May 2022",
         "Description": [
-            "Short-term rental company focused on providing comfortable stays for travelers in the St. Louis area"
+            "Short-term rental company focused on providing comfortable stays for travelers in the St. Louis area."
         ],
         "Links": [],
         "isCurrent": false,
@@ -101,9 +101,8 @@
         "Title": "Performance Analyst Investment Intern",
         "DateRange": "March 2021 - August 2021",
         "Description": [
-            "Automated a Power BI dashboard to summarize fund data for portfolio managers, saving 40 hours a month.",
-            "Composed SQL queries to answer questions on fund performance for the portfolio management team.",
-            "Debugged and contributed to Python scripts that automated recurring reports for portfolio managers."            
+            "Automated a fund report for portfolio managers with Power BI, saving 40 hours monthly.",
+            "Composed SQL queries to answer questions on fund performance for the portfolio management team."    
         ],
         "Links": [],
         "isCurrent": false,

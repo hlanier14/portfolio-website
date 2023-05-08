@@ -7,7 +7,7 @@ function About() {
                 <div class="text-2xl">
                     About Me
                 </div>
-                <div class="text-base mt-10">
+                <div class="text-base mt-10 mx-5 md:mx-10">
                     This is a paragraph.
                 </div>
             </div>
