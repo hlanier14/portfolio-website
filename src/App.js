@@ -6,20 +6,19 @@ import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import DividendAnalysis from "./pages/DividendAnalysis";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <BrowserRouter>
-      <div class="relative md:flex">
-        <SideBar />
+        {/* <SideBar /> */}
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/portfolio/:slug" element={<Article />} />
-          <Route path="/projects/dividend-analysis" element={<DividendAnalysis />} />
+          {/* <Route path="/projects/dividend-analysis" element={<DividendAnalysis />} /> */}
         </Routes>
         <Footer />
-      </div>
     </BrowserRouter>
   );
 }
