@@ -5,7 +5,7 @@
         "DateRange": "February 2023 - Present",
         "Description": [
             "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
-            "Optimized Google Analytics data analysis with PySpark, generating insights to boost conversion rates for clients."
+            "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
         ],
         "Links": [
         ], 
@@ -29,7 +29,7 @@
         "Description": [
             "Developed a TensorFlow model to detect real-time availability of over 200 parking spaces with 92% accuracy.",
             "Deployed an application on GCP to analyze parking spot pricing data for event attendees by extracting real-time quotes from 2k+ garages across multiple platforms.",
-            "Constructed a NodeJS app allowing team members to add events to an internal BigQuery database."            
+            "Constructed a React app allowing team members to add parking spaces to the internal BigQuery database."            
         ],
         "Links": [
             {
@@ -62,8 +62,8 @@
         "Title": "Research Assistant",
         "DateRange": "June 2022 - August 2022",
         "Description": [
-            "Designed a Flask application for annotating and storing bounding boxes on images for model training.",
-            "Trained a PyTorch model to detect furniture in hotel rooms for TraffickCam."     
+            "Designed a Flask application for annotating bounding boxes on images and stored changes in a SQL database.",
+            "Trained a PyTorch model to detect furniture in hotel room images for TraffickCam (traffickcam.com)."     
         ],
         "Links": [
             {
@@ -101,7 +101,7 @@
         "Title": "Performance Analyst Investment Intern",
         "DateRange": "March 2021 - August 2021",
         "Description": [
-            "Automated a fund report for portfolio managers with Power BI, saving 40 hours monthly.",
+            "Automated an Excel fund report for portfolio managers with a Power BI dashboard, saving 40 hours monthly.",
             "Composed SQL queries to answer questions on fund performance for the portfolio management team."    
         ],
         "Links": [],
@@ -117,7 +117,7 @@
         "Title": "Technology Intern",
         "DateRange": "May 2020 - August 2021",
         "Description": [
-            "Implemented a predictive model with SQL to forecast company-wide and branch level production with 11% error based on current pipeline and historical data."
+            "Implemented a predictive model with SQL to forecast company-wide and branch level production with 89% accuracy based on current pipeline and historical data."
         ],
         "Links": [],
         "isCurrent": false,

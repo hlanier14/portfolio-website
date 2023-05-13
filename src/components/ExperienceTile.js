@@ -16,11 +16,6 @@ function ExperienceTile({ company, title, dateRange, description, links, isCurre
                 </span>
                 <h3 className="flex items-center mb-1 text-xl font-semibold text-gray-900 ">
                     { company }
-                    { isCurrent ? 
-                        (<div classNameName="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">
-                            Current
-                        </div>) : (<></>)
-                    }
                 </h3>
                 <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900 ">
                     { title }

@@ -11,7 +11,7 @@ function Home() {
         <div className="bg-slate-100">
             <div className="flex min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-flow-row auto-rows-auto gap-4 my-10 mx-5 md:m-20">
-                    {/* <About /> */}
+                    <About />
                     <Experience />
                     <RecentWork />
                 </div>
