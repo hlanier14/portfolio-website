@@ -92,7 +92,7 @@ function DividendAnalysis() {
               </div>
             )}
           </div>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center py-10">
               {pageNumbers.map((number) => (
                   <button
                       className={`px-4 py-2 mx-2 rounded-full ${
