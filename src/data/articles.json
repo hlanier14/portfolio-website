@@ -1,5 +1,12 @@
 [
     {
+        "Title": "Dividend Stock Analysis",
+        "Subtitle": "Scanning the S&P 500 to find undervalued dividend-paying stocks",
+        "Date": "April 16th, 2023",
+        "Cover Image": "dividend-analysis.png",
+        "Link": "/portfolio/dividend-analysis"
+    },
+    {
         "Title": "Image Annotation Tool",
         "Subtitle": "A flask web application to draw and save bounding boxes on images",
         "Date": "February 23th, 2023",
