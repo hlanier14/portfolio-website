@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import DividendAnalysisCard from '../components/DividendAnalysisCard';
 import axios from 'axios';
+import moment from 'moment';
+import 'moment-timezone';
 
 function DividendAnalysis() {
     const [data, setData] = useState([]);
     const [benchmarks, setBenchmarks] = useState({});
+    const [updated, setUpdated] = useState();
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentItems, setCurrentItems] = useState([]);
@@ -13,11 +16,15 @@ function DividendAnalysis() {
     useEffect(() => {
       const fetchData = async () => {
         const result = await axios(
-          'https://dividend-stock-analysis-qkncq25ynq-uc.a.run.app/valuations'
+          'https://dividend-stock-analysis-qkncq25ynq-uc.a.run.app/model'
         );
         const sortedData = result.data.companies.filter(item => item.valuation > 0).filter(item => item.pctChange > 0).sort((a, b) => a.pctChange - b.pctChange);
         setData(sortedData);
-        setBenchmarks(result.data.benchmarks)
+        setBenchmarks(result.data.benchmarks);
+        const momentUtc = moment.utc(result.data.lastUpdated, moment.ISO_8601);
+        const momentCt = momentUtc.tz('America/Chicago');
+        const formattedDate = momentCt.format('MMMM Do, YYYY [at] h:mm:ss A');
+        setUpdated(formattedDate);
         setLoading(false);
       };
       fetchData();
@@ -37,29 +44,51 @@ function DividendAnalysis() {
     }
 
     return (
-        <div className="w-full h-full min-h-screen pb-36 pt-20">
-          <div className='flex flex-col items-center justify-center p-7'>
-            <div className='text-5xl mb-3'>
+      <div className="bg-slate-100">
+        <div className="min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className='flex flex-col items-center justify-center pt-7 px-7'>
+            <div className='text-4xl md:text-5xl font-bold mb-2'>
               Dividend Stock Analysis
             </div>
             <div className='text-2xl mb-10'>
-              Using the Dividend Discount Model to find undervalued stocks in the S&P 500
-            </div>
-            <div className='text-lg'>
-              Required Rate = Risk Free Rate + Stock Beta * (Market Rate - Risk Free Rate)
-            </div>
-            <div className='text-lg'>
-              Dividend Discount Model = (Last Dividend * Dividend Frequency) / (Required Rate - Dividend Growth Rate)
+              Scanning the S&P 500 for undervalued stocks
             </div>
           </div>
-          <div className='flex justify-center'>
+          <div className='flex flex-col items-center justify-center mb-10 pb-7 px-7 text-lg'>
+            <div className='indent-8'>
+              The goal of this project is to use the Dividend Discount Model to find undervalued dividend-paying stocks in the S&P 500. I scan Yahoo Finance for S&P 500 stock prices and dividend payments at the end of every business day. The Dividend Discount Model formula is:
+            </div>
+            <div className='align-center my-2 italic font-bold mx-5'>
+              DDM = Dividend (FWD) / (Required Rate - Dividend Growth Rate)
+            </div>
+            <div className='indent-8'>
+              I am able to use the dividend payment history of each stock in this model, and calculate the required rate for an investor to purchase each stock with the Capital Asset Pricing Model, which defines that rate as:
+            </div>
+            <div className='align-center my-2 italic font-bold mx-5'>
+              Required Rate = Risk Free Rate + Stock Beta * (Market Rate - Risk Free Rate)
+            </div>
+            <div className='indent-8'>
+              For the risk free rate, I use the latest 10 year T-Bill and for the market rate, I calculate the 5 year CAGR for the S&P 500. As of the last update, those values are {(benchmarks.riskFreeRate * 100).toFixed(2)}% and {(benchmarks.marketRate * 100).toFixed(2)}% respectively. You can view the code for this project <a
+                  href="https://github.com/hlanier14/dividend-stock-analysis"
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="text-blue-500 hover:text-white"
+              >
+                here
+              </a>.
+            </div>
+          </div>
+          <div className='flex flex-col items-center justify-center'>
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <div className="grid grid-cols-1 gap-6 md:w-2/3">
-                {currentItems.map((item) => (
-                  <DividendAnalysisCard item={item} benchmarks={benchmarks} key={item.ticker} />
-                ))}
+                <div className="grid grid-cols-1 gap-5">
+                  <div className='text-sm text-gray-400'>
+                    Last Updated: {updated} (CT)
+                  </div>
+                  {currentItems.map((item) => (
+                    <DividendAnalysisCard item={item} benchmarks={benchmarks} key={item.ticker} />
+                  ))}
               </div>
             )}
           </div>
@@ -76,6 +105,7 @@ function DividendAnalysis() {
                   </button>
               ))}
           </div>
+        </div>
         </div>
     )
 }
