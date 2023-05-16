@@ -46,37 +46,20 @@ function DividendAnalysis() {
     return (
       <div className="bg-slate-100">
         <div className="min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className='flex flex-col items-center justify-center pt-7 px-7'>
-            <div className='text-4xl md:text-5xl font-bold mb-2'>
+          <div className='flex flex-col items-center justify-center pt-7 mb-5'>
+            <div className='text-3xl md:text-4xl font-bold mb-2 text-center '>
               Dividend Stock Analysis
             </div>
-            <div className='text-2xl mb-10'>
-              Scanning the S&P 500 for undervalued stocks
-            </div>
-          </div>
-          <div className='flex flex-col items-center justify-center mb-10 pb-7 px-7 text-lg'>
-            <div className='indent-8'>
-              The goal of this project is to use the Dividend Discount Model to find undervalued dividend-paying stocks in the S&P 500. I scan Yahoo Finance for S&P 500 stock prices and dividend payments at the end of every business day. The Dividend Discount Model formula is:
-            </div>
-            <div className='align-center my-2 italic font-bold mx-5'>
-              DDM = Dividend (FWD) / (Required Rate - Dividend Growth Rate)
-            </div>
-            <div className='indent-8'>
-              I am able to use the dividend payment history of each stock in this model, and calculate the required rate for an investor to purchase each stock with the Capital Asset Pricing Model, which defines that rate as:
-            </div>
-            <div className='align-center my-2 italic font-bold mx-5'>
-              Required Rate = Risk Free Rate + Stock Beta * (Market Rate - Risk Free Rate)
-            </div>
-            <div className='indent-8'>
-              For the risk free rate, I use the latest 10 year T-Bill and for the market rate, I calculate the 5 year CAGR for the S&P 500. As of the last update, those values are {(benchmarks.riskFreeRate * 100).toFixed(2)}% and {(benchmarks.marketRate * 100).toFixed(2)}% respectively. You can view the code for this project <a
-                  href="https://github.com/hlanier14/dividend-stock-analysis"
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="text-blue-500 hover:text-white"
-              >
+            <div className='indent-8 text-left'>
+            This project uses the Gordon Growth Model to find undervalued dividend-paying stocks in the S&P 500. All data is from Yahoo Finance. Check out the code for the backend <a 
+                href="https://github.com/hlanier14/dividend-stock-analysis" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="text-blue-500 hover:text-white"
+            >
                 here
-              </a>.
-            </div>
+            </a>!
+          </div>
           </div>
           <div className='flex flex-col items-center justify-center'>
             {loading ? (
@@ -106,7 +89,7 @@ function DividendAnalysis() {
               ))}
           </div>
         </div>
-        </div>
+      </div>
     )
 }
 
