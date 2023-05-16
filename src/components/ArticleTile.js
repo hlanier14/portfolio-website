@@ -6,7 +6,7 @@ function ArticleTile({ title, subtitle, date, coverImage, link }) {
           <a href={ link }>
             <img class="w-full hover:backdrop-brightness-50 " src={ "/cover-images/" + coverImage } alt={coverImage} />
             <div class="px-6 py-4">
-              <div class="font-bold text-2xl mb-2">
+              <div class="font-bold text-xl mb-2">
                   { title }
               </div>
               <p class="text-gray-700 text-base">

@@ -40,7 +40,7 @@ function DividendAnalysisCard({ item, benchmarks }) {
                         <div className='mb-2'>
                             {(benchmarks.riskFreeRate * 100).toFixed(2)}% + {item.fiveYearBeta.toFixed(2)} * ({(benchmarks.marketRate * 100).toFixed(2)}% - {(benchmarks.riskFreeRate * 100).toFixed(2)}%) = {(item.requiredRate * 100).toFixed(2)}%
                         </div>
-                        <div>Dividend Discount Model</div>
+                        <div>Gordon Growth Model</div>
                         <div>(Last Dividend * Dividend Frequency) / (Required Rate - Dividend Growth Rate)</div>
                         <div>
                             ({item.lastDividend.toFixed(2)} * {item.dividendFrequency.toFixed(0)}) / ({(item.requiredRate * 100).toFixed(2)}% - {(item.fiveYearCAGR * 100).toFixed(2)}%) = ${item.valuation.toFixed(2)}
