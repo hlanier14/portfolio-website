@@ -24,6 +24,12 @@ function Navbar() {
                     </div>
                     <div className="hidden md:block">
                         <a
+                            href="/about"
+                            className="text-white hover:text-blue-500 px-3 py-2 mr-10 rounded-md text-sm font-medium"
+                        >
+                            About
+                        </a>
+                        <a
                             href="/portfolio"
                             className="text-white hover:text-blue-500 px-3 py-2 mr-10 rounded-md text-sm font-medium"
                         >
@@ -49,7 +55,13 @@ function Navbar() {
                 </div>
                 {isDropdownOpen && (
                     <div className="w-full bg-gray-800 rounded-md overflow-hidden shadow-xl z-10">
-                        <div className="px-2 py-5 space-y-1">
+                        <div className="px-2 pb-5 space-y-1">
+                            <a
+                                href="/about"
+                                className="block text-white hover:text-blue-500 px-3 py-2 rounded-md text-base font-medium text-center"
+                            >
+                                About
+                            </a>
                             <a
                                 href="/portfolio"
                                 className="block text-white hover:text-blue-500 px-3 py-2 rounded-md text-base font-medium text-center"

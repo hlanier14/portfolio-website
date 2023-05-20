@@ -1,7 +1,7 @@
 [
     {
         "Company": "Clickvoyant (Techstars '22)",
-        "Title": "Technology Contractor",
+        "Title": "Data Engineer",
         "DateRange": "February 2023 - Present",
         "Description": [
             "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",

@@ -1,23 +1,46 @@
 [
     {
         "Title": "Dividend Stock Analysis",
-        "Subtitle": "Scanning the S&P 500 to find undervalued dividend-paying stocks",
+        "Subtitle": "As a dividend growth investor, I want to invest in stocks that consistently increase their dividend payments. I built this dashboard to help me scan the S&P 500 for undervalued dividend-paying stocks using the Gordon Growth Model. It extracts price and dividend history from Yahoo Finance daily and calculates each stocks projected valuation using the model.",
         "Date": "April 16th, 2023",
         "Cover Image": "dividend-analysis.png",
-        "Link": "/portfolio/dividend-analysis"
+        "Links": [
+            {
+                "name": "View Live",
+                "href": "/portfolio/dividend-analysis"
+            },
+            {
+                "name": "View Code",
+                "href": "https://github.com/hlanier14/dividend-stock-analysis"
+            }
+        ]
     },
     {
-        "Title": "Image Annotation Tool",
-        "Subtitle": "A flask web application to draw and save bounding boxes on images",
-        "Date": "February 23th, 2023",
-        "Cover Image": "image-annotator.png",
-        "Link": "https://github.com/SLUVisLab/image-annotator"
+        "Title": "TTP Appointment Scanner",
+        "Subtitle": "Have you ever needed to book a Global Entry appointment? I have, and the next available interview in the entire state of Illinois was three months into the future. Not wanting to constantly check TTP's site for closer open timeslots, I built a scanner to automatically alert me via email and SMS when timeslots open up at nearby locations. I am in the process of making the scanner available to others looking for a Global Entry appointment.",
+        "Date": "March 2nd, 2023",
+        "Cover Image": "ttp-scanner.jpg",
+        "Links": [
+            {
+                "name": "Check it out",
+                "href": "https://ttpscanner.com/locations/global-entry"
+            }
+        ]
     },
     {
-        "Title": "Featured on Tidy Tuesday!",
-        "Subtitle": "My data science capstone project was selected for the weekly competition",
+        "Title": "Weather Forecasts",
+        "Subtitle": "This project was the capstone of my Data Science degree. We wanted to try to explain why some areas of the U.S. struggle with temperature prediction. We gathered, cleaned, and analyzed weather forecast and geographic data on 160 cities. In December 2022, the dataset was selected by Tidy Tuesday for its weekly data wrangling and visualization challenge.",
         "Date": "February 20th, 2023",
-        "Cover Image": "tidy-tuesday.jpg",
-        "Link": "https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-12-20"
+        "Cover Image": "weather-forecasts.jpg",
+        "Links": [
+            {
+                "name": "View Code",
+                "href": "https://github.com/hlanier14/weather-forecasts"
+            },
+            {
+                "name": "View Tidy Tuesday",
+                "href": "https://github.com/rfordatascience/tidytuesday/tree/master/data/2022/2022-12-20"
+            }
+        ]
     }
 ]
