@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line, Bar } from "react-chartjs-2";
 import Chart from 'chart.js/auto';
 import moment from 'moment';
@@ -10,38 +10,65 @@ function DividendAnalysisCard({ item, benchmarks }) {
     const [isExplanationOpen, setIsExplanationOpen] = useState(false);
 
     return (
-        <div className="container mx-auto bg-white shadow-lg rounded-lg p-6 mx-5">
+        <div className="container mx-auto bg-white shadow-lg rounded-lg p-6">
             <div className='grid grid-cols-2 md:grid-cols-5'>
-                <div className='col-span-2 md:col-span-3 flex flex-col items-start justify-center mb-4'>
+                <div className='col-span-2 md:col-span-3 flex flex-col items-start justify-start mb-4'>
                     <div className='flex items-center justify-left'>
-                        <div className="text-xl font-bold">{item.longName}</div>
-                        <div className="text-gray-600 font-bold ml-2"> ({item.ticker})</div>
+                        <div className="text-xl font-bold">
+                            {item.longName}
+                        </div>
+                        <div className="text-gray-600 font-bold ml-2"> 
+                            ({item.ticker})
+                        </div>
                     </div>
-                    <div className="text-gray-400">{item.sector}</div>
+                    <div className="text-gray-400">
+                        {item.sector}
+                    </div>
                 </div>
                 <div className='md:col-span-1 bg-gray-200 rounded-lg flex flex-col items-center justify-start ml-5 mr-2'>
-                    <div className="text-sm font-small text-gray-800 mt-2">Current Price:</div>
+                    <div className="text-sm font-small text-gray-800 mt-2">
+                        Current Price:
+                    </div>
                     <div className='p-2'>
-                        <div className="text-lg font-medium text-gray-800">${item.lastPrice.toFixed(2)}</div>
+                        <div className="text-lg font-medium text-gray-800">
+                            ${item.lastPrice.toFixed(2)}
+                        </div>
                     </div>
                 </div>
-                <button className='md:col-span-1 bg-green-100 rounded-lg flex flex-col items-center justify-start ml-2 mr-5' onClick={() => setIsExplanationOpen(!isExplanationOpen)}>
-                    <div className="text-sm font-small text-gray-800 mt-2">Projected Price:</div>
+                <button className='md:col-span-1 bg-green-100 rounded-lg flex flex-col items-center justify-start ml-2 mr-5' 
+                        onClick={() => setIsExplanationOpen(!isExplanationOpen)}>
+                    <div className="text-sm font-small text-gray-800 mt-2">
+                        Projected Price:
+                    </div>
                     <div className='text-xs p-2 mb-2'>
-                        <div className="mx-2 text-lg font-medium text-gray-800">${item.valuation.toFixed(2)}</div>
-                        <div className="text-md font-medium text-green-900">(&uarr;{(item.pctChange * 100).toFixed(2)}%)</div>
+                        <div className="mx-2 text-lg font-medium text-gray-800">
+                            ${item.valuation.toFixed(2)}
+                        </div>
+                        <div className="text-md font-medium text-green-900">
+                            (&uarr;{(item.pctChange * 100).toFixed(2)}%)
+                        </div>
                     </div>
                 </button>
                 { isExplanationOpen ? (
-                    <div className='col-span-2 md:col-span-5 bg-gray-100 flex flex-col items-center justify-center border-2 border-dashed rounded-lg text-sm md:text-md p-3 mt-3 md:my-3 mx-5'>
-                        <div className='mb-2'>Methodology:</div>
-                        <div>Required Rate</div>
-                        <div>Risk Free Rate + Stock Beta * (Market Rate - Risk Free Rate)</div>
+                    <div className='col-span-2 md:col-span-5 bg-gray-100 flex flex-col items-center justify-center border-2 border-dashed rounded-lg text-sm md:text-md p-3 mt-3 md:my-3 mx-5 text-center'>
+                        <div className='mb-2'>
+                            Methodology:
+                        </div>
+                        <div>
+                            Required Rate - 
+                        </div>
+                        <div className='text-gray-400'>
+                            Risk Free Rate + Stock Beta * (Market Rate - Risk Free Rate)
+                        </div>
                         <div className='mb-2'>
                             {(benchmarks.riskFreeRate * 100).toFixed(2)}% + {item.fiveYearBeta.toFixed(2)} * ({(benchmarks.marketRate * 100).toFixed(2)}% - {(benchmarks.riskFreeRate * 100).toFixed(2)}%) = {(item.requiredRate * 100).toFixed(2)}%
                         </div>
-                        <div>Gordon Growth Model</div>
-                        <div>(Last Dividend * Dividend Frequency) / (Required Rate - Dividend Growth Rate)</div>
+                        <div>
+                            Gordon Growth Model - 
+                        </div>
+                        <div className='text-gray-400'>
+                            (Last Dividend * Dividend Frequency) / (Required Rate - Dividend Growth Rate)
+                        </div>
                         <div>
                             ({item.lastDividend.toFixed(2)} * {item.dividendFrequency.toFixed(0)}) / ({(item.requiredRate * 100).toFixed(2)}% - {(item.fiveYearCAGR * 100).toFixed(2)}%) = ${item.valuation.toFixed(2)}
                         </div>
@@ -89,7 +116,21 @@ function DividendAnalysisCard({ item, benchmarks }) {
                                     },
                                     legend: {
                                         display: false
-                                    }
+                                    },
+                                    tooltip: {
+                                        callbacks: {
+                                            label: function (context) {
+                                                var label = context.dataset.label || "";
+                                                if (context.parsed.x !== null && context.parsed.y !== null) {
+                                                    label += ": $" + parseFloat(context.parsed.y).toFixed(2);
+                                                }
+                                                return label;
+                                            },
+                                            title: function (value, index, values) {
+                                                return moment(item.dividendHistory[value[0].dataIndex].date).format("MMM D, YYYY");
+                                            }
+                                        },
+                                    },
                                 },
                                 maintainAspectRatio: false,
                                 responsive: true,
@@ -139,14 +180,20 @@ function DividendAnalysisCard({ item, benchmarks }) {
                                     },
                                     tooltip: {
                                         enabled: true,
-                                        mode: 'nearest',
+                                        mode: 'index',
+                                        axis: 'x',
                                         intersect: false,
                                         callbacks: {
-                                        //   label: function(tooltipItem, data) {
-                                        //     var label = data[tooltipItem.index].date;
-                                        //     var value = data[tooltipItem.index].price;
-                                        //     return label + ': $' + value.toFixed(2);
-                                        //   }
+                                            label: function (context) {
+                                                var label = context.dataset.label || "";
+                                                if (context.parsed.x !== null && context.parsed.y !== null) {
+                                                    label += ": $" + parseFloat(context.parsed.y).toFixed(2);
+                                                }
+                                                return label;
+                                            },
+                                            title: function (value, index, values) {
+                                                return moment(item.priceHistory[value[0].dataIndex].date).format("MMM D, YYYY");
+                                            }
                                         }
                                     }
                                 },

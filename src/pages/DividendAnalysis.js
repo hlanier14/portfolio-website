@@ -31,37 +31,27 @@ function DividendAnalysis() {
     }, []);
   
     useEffect(() => {
-        setCurrentItems(data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
-      }, [currentPage, data, itemsPerPage]);
+      setCurrentItems(data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage));
+    }, [currentPage, data, itemsPerPage]);
 
     const paginate = (pageNumber) => {
-        setCurrentPage(pageNumber);
+      setCurrentPage(pageNumber);
     };
   
     const pageNumbers = [];
     for (let i = 1; i <= Math.ceil(data.length / itemsPerPage); i++) {
-        pageNumbers.push(i);
+      pageNumbers.push(i);
     }
 
     return (
       <div className="bg-slate-100">
-        <div className="min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className='flex flex-col items-center justify-center pt-7 mb-5'>
             <div className='text-3xl md:text-4xl font-bold mb-2 text-center '>
               Dividend Stock Analysis
             </div>
-            <div className='indent-8 text-left'>
-            This project uses the Gordon Growth Model to find undervalued dividend-paying stocks in the S&P 500. All data is from Yahoo Finance. Check out the code for the backend <a 
-                href="https://github.com/hlanier14/dividend-stock-analysis" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="text-blue-500 hover:text-white"
-            >
-                here
-            </a>!
           </div>
-          </div>
-          <div className='flex flex-col items-center justify-center'>
+          <div className='flex flex-col items-center justify-center md:mx-20'>
             {loading ? (
                 <p>Loading...</p>
             ) : (
