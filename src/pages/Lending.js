@@ -92,7 +92,7 @@ function Lending() {
                         <div className='self-end mt-10 mb-10'>
                             Supply Balance
                         </div>
-                        <div className='grid grid-cols-3 grid-rows-3 w-1/2 md:gap-5 space-y-5 max-w-screen self-start justify-items-center'>
+                        <div className='grid grid-cols-3 grid-rows-3 w-3/5 md:gap-5 space-y-5 max-w-screen self-start justify-items-center'>
                             <div></div>
                             <div>
                                 Interest Rate
