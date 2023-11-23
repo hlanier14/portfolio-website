@@ -92,7 +92,7 @@ function Lending() {
                         <div className='self-end mt-10 mb-10'>
                             Supply Balance
                         </div>
-                        <div className='grid grid-cols-3 grid-rows-3 gap-5 space-y-5 max-w-screen self-start justify-items-center'>
+                        <div className='grid grid-cols-3 grid-rows-3 md:gap-5 space-y-5 max-w-screen self-start justify-items-center'>
                             <div></div>
                             <div>
                                 Interest Rate
@@ -103,7 +103,7 @@ function Lending() {
                             <img
                                 src="/aaveLogo.svg"
                                 alt="Aave Logo"
-                                className="w-32 h-auto mr-20"
+                                className="w-24 md:w-32 h-auto mr-20"
                             />  
                             <div className='flex self-center'>
                                 {(protocolRates[1].supplyAPR * 100).toFixed(2)}%
@@ -114,7 +114,7 @@ function Lending() {
                             <img
                                 src="/compoundLogo.png"
                                 alt="Compound Logo"
-                                className="w-32 h-auto mr-20"
+                                className="w-24 md:w-32 h-auto mr-20"
                             />   
                             <div className='flex self-center'>
                                 {(protocolRates[0].supplyNetAPR * 100).toFixed(2)}%
