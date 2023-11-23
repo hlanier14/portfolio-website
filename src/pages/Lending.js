@@ -103,7 +103,7 @@ function Lending() {
                             <img
                                 src="/aaveLogo.svg"
                                 alt="Aave Logo"
-                                className="w-24 md:w-32 h-auto mr-10 md:mr-20"
+                                className="w-24 md:w-32 h-auto mr-5 md:mr-20"
                             />  
                             <div className='flex self-center'>
                                 {(protocolRates[1].supplyAPR * 100).toFixed(2)}%
@@ -114,7 +114,7 @@ function Lending() {
                             <img
                                 src="/compoundLogo.png"
                                 alt="Compound Logo"
-                                className="w-24 md:w-32 h-auto mr-10 md:mr-20"
+                                className="w-24 md:w-32 h-auto mr-5 md:mr-20"
                             />   
                             <div className='flex self-center'>
                                 {(protocolRates[0].supplyNetAPR * 100).toFixed(2)}%
