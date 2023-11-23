@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import DividendAnalysisCard from '../components/DividendAnalysisCard';
 import axios from 'axios';
-import moment from 'moment';
-import 'moment-timezone';
 
 function Lending() {
 
@@ -28,7 +25,7 @@ function Lending() {
         <div className="bg-slate-100">
             <div className="min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
                 {loading ? (
-                    <p>Loading...</p>
+                    <div className='flex justify-center self-end pt-10'>Loading...</div>
                 ) : (
                     <div className='grid justify-items-center'>
                         <div className='flex justify-center self-end mt-10'>
@@ -42,7 +39,7 @@ function Lending() {
                         <div className='self-end mt-10 mb-10'>
                             Account Balance
                         </div>
-                        <div className='grid grid-cols-4 grid-rows-3 space-y-2 self-start w-1/2 justify-items-center'>
+                        <div className='grid grid-cols-4 grid-rows-3 space-y-2 self-start max-w-screen md:w-1/2 justify-items-center'>
                             <div></div>
                             <div>
                                 Balance
@@ -95,7 +92,7 @@ function Lending() {
                         <div className='self-end mt-10 mb-10'>
                             Supply Balance
                         </div>
-                        <div className='grid grid-cols-3 grid-rows-3 gap-5 space-y-5 self-start justify-items-center'>
+                        <div className='grid grid-cols-3 grid-rows-3 gap-5 space-y-5 max-w-screen self-start justify-items-center'>
                             <div></div>
                             <div>
                                 Interest Rate
