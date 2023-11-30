@@ -10,9 +10,9 @@ function Lending() {
 
     useEffect(() => {
       const fetchData = async () => {
-        const protocolRates = await axios("https://lending-qkncq25ynq-uc.a.run.app/protocols/rates");
-        const protocolBalances = await axios("https://lending-qkncq25ynq-uc.a.run.app/protocols/balances");
-        const accountBalances = await axios("https://lending-qkncq25ynq-uc.a.run.app/accounts/balances");
+        const protocolRates = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/rates");
+        const protocolBalances = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/balances");
+        const accountBalances = await axios("https://lending-m7dl7jaevq-uc.a.run.app/accounts/balances");
         setProtocolRates(protocolRates.data);
         setProtocolBalances(protocolBalances.data);
         setAccountBalances(accountBalances.data);
