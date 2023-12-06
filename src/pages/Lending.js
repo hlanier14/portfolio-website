@@ -3,19 +3,16 @@ import axios from 'axios';
 
 function Lending() {
 
-    const [protocolRates, setProtocolRates] = useState([]);
-    const [protocolBalances, setProtocolBalances] = useState([]);
-    const [accountBalances, setAccountBalances] = useState({});
+    const [protocolData, setProtocolData] = useState([]);
+    const [accountData, setAccountData] = useState({});
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       const fetchData = async () => {
-        const protocolRates = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/rates");
-        const protocolBalances = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/balances");
-        const accountBalances = await axios("https://lending-m7dl7jaevq-uc.a.run.app/accounts/balances");
-        setProtocolRates(protocolRates.data);
-        setProtocolBalances(protocolBalances.data);
-        setAccountBalances(accountBalances.data);
+        const protocolData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/latest");
+        const accountData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/accounts/balances");
+        setProtocolData(protocolData.data);
+        setAccountData(accountData.data);
         setLoading(false);
       };
       fetchData();
@@ -33,7 +30,7 @@ function Lending() {
                                 Total Balance: 
                             </div>
                             <div className=''>
-                                ${(accountBalances.usdcToUsd + accountBalances.maticToUsd + protocolBalances[0].suppliedAssets + protocolBalances[1].suppliedAssets).toFixed(2)}
+                                ${(accountData[0].balanceInUsd + accountData[0].balanceInUsd + protocolData[0].suppliedAssets + protocolData[1].suppliedAssets).toFixed(2)}
                             </div>
                         </div>
                         <div className='self-end mt-10 mb-10'>
@@ -61,13 +58,13 @@ function Lending() {
                                 </div>                                         
                             </div>
                             <div className='flex self-center'>
-                                {(accountBalances.maticBalance).toFixed(4)}
+                                {(accountData[0].balance).toFixed(4)}
                             </div>
                             <div className='flex self-center'>
-                                ${(accountBalances.maticPrice).toFixed(2)}
+                                ${(accountData[0].price).toFixed(2)}
                             </div>
                             <div className='flex self-center'>
-                                ${(accountBalances.maticToUsd).toFixed(2)}
+                                ${(accountData[0].balanceInUsd).toFixed(2)}
                             </div>
                             <div className='flex'>
                                 <img
@@ -80,13 +77,13 @@ function Lending() {
                                 </div>                                         
                             </div>
                             <div className='flex self-center'>
-                                {(accountBalances.usdcBalance).toFixed(4)}
+                                {(accountData[1].balance).toFixed(4)}
                             </div>
                             <div className='flex self-center'>
-                                ${(accountBalances.usdcPrice).toFixed(2)}
+                                ${(accountData[1].price).toFixed(2)}
                             </div>
                             <div className='flex self-center'>
-                                ${(accountBalances.usdcToUsd).toFixed(2)}
+                                ${(accountData[1].balanceInUsd).toFixed(2)}
                             </div>
                         </div>
                         <div className='self-end mt-10 mb-10'>
@@ -106,10 +103,10 @@ function Lending() {
                                 className="w-24 md:w-32 h-auto mr-5 md:mr-20"
                             />  
                             <div className='flex self-center'>
-                                {(protocolRates[1].supplyAPR * 100).toFixed(2)}%
+                                {(protocolData[1].supplyNetAPY * 100).toFixed(2)}%
                             </div>
                             <div className='flex self-center'>
-                                ${(protocolBalances[1].suppliedAssets).toFixed(2)}
+                                ${(protocolData[1].suppliedAssets).toFixed(2)}
                             </div>
                             <img
                                 src="/compoundLogo.png"
@@ -117,10 +114,10 @@ function Lending() {
                                 className="w-24 md:w-32 h-auto mr-5 md:mr-20"
                             />   
                             <div className='flex self-center'>
-                                {(protocolRates[0].supplyNetAPR * 100).toFixed(2)}%
+                                {(protocolData[0].supplyNetAPR * 100).toFixed(2)}%
                             </div>
                             <div className='flex self-center'>
-                                ${(protocolBalances[0].suppliedAssets).toFixed(2)}
+                                ${(protocolData[0].suppliedAssets).toFixed(2)}
                             </div>
                         </div>
                     </div>
