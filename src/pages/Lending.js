@@ -10,7 +10,7 @@ function Lending() {
     useEffect(() => {
       const fetchData = async () => {
         const protocolData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/latest");
-        const accountData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/accounts/balances");
+        const accountData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/wallet/balances");
         setProtocolData(protocolData.data);
         setAccountData(accountData.data);
         setLoading(false);
