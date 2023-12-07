@@ -13,9 +13,9 @@ function Lending() {
     // https://lending-m7dl7jaevq-uc.a.run.app
     useEffect(() => {
       const fetchData = async () => {
-        const latestProtocolData = await axios("http://localhost:3030/protocols/latest");
-        const historicalProtocolData = await axios("http://localhost:3030/protocols/historical");
-        const accountData = await axios("http://localhost:3030/wallet/balances");
+        const latestProtocolData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/latest");
+        const historicalProtocolData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/historical");
+        const accountData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/wallet/balances");
         setLatestProtocolData(latestProtocolData.data);
         setHistoricalProtocolData(historicalProtocolData.data);
         setAccountData(accountData.data);
