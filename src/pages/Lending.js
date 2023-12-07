@@ -1,22 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Plot from 'react-plotly.js';
+
 
 function Lending() {
 
-    const [protocolData, setProtocolData] = useState([]);
+    const [latestProtocolData, setLatestProtocolData] = useState([]);
+    const [historicalProtocolData, setHistoricalProtocolData] = useState([]);
     const [accountData, setAccountData] = useState({});
     const [loading, setLoading] = useState(true);
 
+    // https://lending-m7dl7jaevq-uc.a.run.app
     useEffect(() => {
       const fetchData = async () => {
-        const protocolData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/latest");
-        const accountData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/wallet/balances");
-        setProtocolData(protocolData.data);
+        const latestProtocolData = await axios("http://localhost:3030/protocols/latest");
+        const historicalProtocolData = await axios("http://localhost:3030/protocols/historical");
+        const accountData = await axios("http://localhost:3030/wallet/balances");
+        setLatestProtocolData(latestProtocolData.data);
+        setHistoricalProtocolData(historicalProtocolData.data);
         setAccountData(accountData.data);
         setLoading(false);
       };
       fetchData();
     }, []);
+
+    const balanceData = [
+        {
+            x: historicalProtocolData.map((point) => point.date),
+            y: historicalProtocolData.map((point) => point.suppliedAssets),
+            type: 'scatter',
+            mode: 'lines',
+            marker: { color: 'blue' },
+        },
+    ];
+
+    const balanceLayout = {
+        title: 'Supplied Assets',
+        yaxis: { title: 'USDC' },
+    };
+
+    const rateData = [
+        {
+            x: historicalProtocolData.map((point) => point.date),
+            y: historicalProtocolData.map((point) => point.supplyNetAPR),
+            type: 'scatter',
+            mode: 'lines',
+            marker: { color: 'blue' },
+        },
+    ];
+
+    const rateLayout = {
+        title: 'Supply APR',
+        yaxis: { title: '%' },
+    };
 
     return (
         <div className="bg-slate-100">
@@ -30,7 +66,7 @@ function Lending() {
                                 Total Balance: 
                             </div>
                             <div className=''>
-                                ${(accountData[0].balanceInUsd + accountData[0].balanceInUsd + protocolData[0].suppliedAssets + protocolData[1].suppliedAssets).toFixed(2)}
+                                ${(accountData[0].balanceInUsd + accountData[0].balanceInUsd + latestProtocolData[0].suppliedAssets + latestProtocolData[1].suppliedAssets).toFixed(2)}
                             </div>
                         </div>
                         <div className='self-end mt-10 mb-10'>
@@ -103,10 +139,10 @@ function Lending() {
                                 className="w-24 md:w-32 h-auto mr-5 md:mr-20"
                             />  
                             <div className='flex self-center'>
-                                {(protocolData[1].supplyNetAPY * 100).toFixed(2)}%
+                                {(latestProtocolData[1].supplyNetAPY * 100).toFixed(2)}%
                             </div>
                             <div className='flex self-center'>
-                                ${(protocolData[1].suppliedAssets).toFixed(2)}
+                                ${(latestProtocolData[1].suppliedAssets).toFixed(2)}
                             </div>
                             <img
                                 src="/compoundLogo.png"
@@ -114,11 +150,17 @@ function Lending() {
                                 className="w-24 md:w-32 h-auto mr-5 md:mr-20"
                             />   
                             <div className='flex self-center'>
-                                {(protocolData[0].supplyNetAPR * 100).toFixed(2)}%
+                                {(latestProtocolData[0].supplyNetAPR * 100).toFixed(2)}%
                             </div>
                             <div className='flex self-center'>
-                                ${(protocolData[0].suppliedAssets).toFixed(2)}
+                                ${(latestProtocolData[0].suppliedAssets).toFixed(2)}
                             </div>
+                        </div>
+                        <div className='my-24'>
+                            <Plot data={balanceData} layout={balanceLayout} />
+                        </div>
+                        <div className='mt-5 mb-24'>
+                            <Plot data={rateData} layout={rateLayout} />
                         </div>
                     </div>
                 )}

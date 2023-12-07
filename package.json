@@ -12,10 +12,12 @@
     "mathjax": "^3.2.2",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",
+    "plotly.js": "^2.27.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
+    "react-plotly.js": "^2.6.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
