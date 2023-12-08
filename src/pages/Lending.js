@@ -27,7 +27,7 @@ function Lending() {
     const balanceData = [
         {
             x: historicalProtocolData.map((point) => point.date),
-            y: historicalProtocolData.map((point) => point.suppliedAssets),
+            y: historicalProtocolData.map((point) => point.balance),
             type: 'scatter',
             mode: 'lines',
             marker: { color: 'blue' },
@@ -35,14 +35,14 @@ function Lending() {
     ];
 
     const balanceLayout = {
-        title: 'Supplied Assets',
+        title: 'Total USDC',
         yaxis: { title: 'USDC' },
     };
 
     const rateData = [
         {
             x: historicalProtocolData.map((point) => point.date),
-            y: historicalProtocolData.map((point) => point.supplyNetAPR),
+            y: historicalProtocolData.map((point) => point.APY),
             type: 'scatter',
             mode: 'lines',
             marker: { color: 'blue' },
@@ -50,7 +50,7 @@ function Lending() {
     ];
 
     const rateLayout = {
-        title: 'Supply APR',
+        title: 'Supplied USDC APY',
         yaxis: { title: '%' },
     };
 
