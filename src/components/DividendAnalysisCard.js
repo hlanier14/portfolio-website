@@ -4,7 +4,7 @@ import Chart from 'chart.js/auto';
 import moment from 'moment';
 
 
-function DividendAnalysisCard({ item, benchmarks }) {
+function DividendAnalysisCard({ item, riskFreeRate, marketRate }) {
 
     const [chartType, setChartType] = useState('price');
     const [isExplanationOpen, setIsExplanationOpen] = useState(false);
@@ -15,7 +15,7 @@ function DividendAnalysisCard({ item, benchmarks }) {
                 <div className='col-span-2 md:col-span-3 flex flex-col items-start justify-start mb-4'>
                     <div className='flex items-center justify-left'>
                         <div className="text-xl font-bold">
-                            {item.longName}
+                            {item.name}
                         </div>
                         <div className="text-gray-600 font-bold ml-2"> 
                             ({item.ticker})
@@ -61,7 +61,7 @@ function DividendAnalysisCard({ item, benchmarks }) {
                             Risk Free Rate + Stock Beta * (Market Rate - Risk Free Rate)
                         </div>
                         <div className='mb-2'>
-                            {(benchmarks.riskFreeRate * 100).toFixed(2)}% + {item.fiveYearBeta.toFixed(2)} * ({(benchmarks.marketRate * 100).toFixed(2)}% - {(benchmarks.riskFreeRate * 100).toFixed(2)}%) = {(item.requiredRate * 100).toFixed(2)}%
+                            {(riskFreeRate * 100).toFixed(2)}% + {item.beta.toFixed(2)} * ({(marketRate * 100).toFixed(2)}% - {(riskFreeRate * 100).toFixed(2)}%) = {(item.requiredRate * 100).toFixed(2)}%
                         </div>
                         <div>
                             Gordon Growth Model - 
@@ -100,10 +100,10 @@ function DividendAnalysisCard({ item, benchmarks }) {
                     <div className='mt-4 flex justify-center items-center mb-5 md:mb-0'>
                         { chartType === 'dividends' ? (
                             <Bar data={{
-                                labels: item.dividendHistory.map(dividend => moment(dividend.date).format("MMM 'YY")),
+                                labels: item.dividendHistory.map(dividend => moment(dividend.date).format("MMM D, YYYY")),
                                 datasets: [{
                                     label: 'Dividends',
-                                    data: item.dividendHistory.map(dividend => dividend.dividend),
+                                    data: item.dividendHistory.map(dividend => dividend.dividends),
                                     backgroundColor: 'rgba(20, 115, 230, 0.75)',
                                     borderColor: 'rgba(20, 115, 230, 1)',
                                     borderWidth: 1
@@ -146,10 +146,10 @@ function DividendAnalysisCard({ item, benchmarks }) {
                             }} />
                         ) : (
                             <Line data={{ 
-                                labels: item.priceHistory.map(price => moment(price.date).format("MMM 'YY")),
+                                labels: item.priceHistory.map(price => moment(price.date).format("MMM D")),
                                 datasets: [{
                                     label: "Price",
-                                    data: item.priceHistory.map(price => price.price),
+                                    data: item.priceHistory.map(price => price['adj close']),
                                     borderColor: "rgba(20, 115, 230, 1)",
                                     borderWidth: 1,
                                     pointRadius: 0,
@@ -252,22 +252,22 @@ function DividendAnalysisCard({ item, benchmarks }) {
                 <div className='col-span-2 md:col-span-2 text-sm md:mx-5'>
                     <div className='md:mt-4 grid grid-cols-2 '>
                         <div className='text-left whitespace-nowrap'>
-                            <p>EPS (FWD):</p>
-                            <p>PE (FWD):</p>
+                            {/* <p>EPS (FWD):</p> */}
+                            {/* <p>PE (FWD):</p> */}
                             <p>Dividend (FWD):</p>
                             <p>Dividend Yield:</p>
-                            <p>Payout Ratio:</p>
+                            {/* <p>Payout Ratio:</p> */}
                             <p>Dividend Growth Rate 5Y (CAGR):</p>
                             <p>Consecutive Dividend Growth:</p>
                         </div>
                         <div className='text-right'>
-                            <p>{item.forwardEps.toFixed(2)}</p>
-                            <p>{item.forwardPE.toFixed(2)}</p>
+                            {/* <p>{item.forwardEps.toFixed(2)}</p> */}
+                            {/* <p>{item.forwardPE.toFixed(2)}</p> */}
                             <p>{(item.lastDividend * item.dividendFrequency).toFixed(2)}</p>
                             <p>{((item.lastDividend * item.dividendFrequency) / item.lastPrice * 100).toFixed(2)}%</p>
-                            <p>{(item.payoutRatio * 100).toFixed(2)}%</p>
+                            {/* <p>{(item.payoutRatio * 100).toFixed(2)}%</p> */}
                             <p>{(item.fiveYearCAGR * 100).toFixed(2)}%</p>
-                            <p>{item.consecutiveYears} years</p>
+                            <p>{item.consecutiveGrowthYears} years</p>
                         </div>
                     </div>
                 </div>

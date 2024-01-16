@@ -6,22 +6,36 @@ import 'moment-timezone';
 
 function DividendAnalysis() {
     const [data, setData] = useState([]);
-    const [benchmarks, setBenchmarks] = useState({});
+    const [riskFreeRate, setRiskFreeRate] = useState();
+    const [marketRate, setMarketRate] = useState();
     const [updated, setUpdated] = useState();
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [currentItems, setCurrentItems] = useState([]);
-    const [itemsPerPage] = useState(25);
+    const [itemsPerPage] = useState(10);
 
     useEffect(() => {
       const fetchData = async () => {
-        const result = await axios(
-          'https://dividend-stock-analysis-qkncq25ynq-uc.a.run.app/model'
-        );
-        const sortedData = result.data.companies.filter(item => item.valuation > 0).filter(item => item.pctChange > 0).sort((a, b) => a.pctChange - b.pctChange);
+        const response = await axios("https://y6xionjqx6.execute-api.us-east-2.amazonaws.com/prod/data");
+        const raw = response.data[0];
+        const riskFreeRate = raw.benchmarks.find(item => item.ticker === '^TNX')?.rate;
+        const marketRate = raw.benchmarks.find(item => item.ticker === '^GSPC')?.rate;
+        const result = raw.companies.map(item => {
+          const requiredRate = riskFreeRate + item.beta * (marketRate - riskFreeRate);
+          const valuation = (item.lastDividend * item.dividendFrequency) / (requiredRate - item.fiveYearCAGR);
+          const pctChange = (valuation - item.lastPrice) / item.lastPrice;
+          return {
+            ...item,
+            requiredRate,
+            valuation,
+            pctChange,
+          };
+        });
+        const sortedData = result.filter(item => item.valuation > 0).filter(item => item.pctChange > 0).filter(item => item.pctChange < 1).sort((a, b) => a.pctChange - b.pctChange);
         setData(sortedData);
-        setBenchmarks(result.data.benchmarks);
-        const momentUtc = moment.utc(result.data.lastUpdated, moment.ISO_8601);
+        setRiskFreeRate(riskFreeRate);
+        setMarketRate(marketRate);
+        const momentUtc = moment.utc(raw.lastUpdated, moment.ISO_8601);
         const momentCt = momentUtc.tz('America/Chicago');
         const formattedDate = momentCt.format('MMMM Do, YYYY [at] h:mm:ss A');
         setUpdated(formattedDate);
@@ -60,7 +74,7 @@ function DividendAnalysis() {
                     Last Updated: {updated} (CT)
                   </div>
                   {currentItems.map((item) => (
-                    <DividendAnalysisCard item={item} benchmarks={benchmarks} key={item.ticker} />
+                    <DividendAnalysisCard item={item} riskFreeRate={riskFreeRate} marketRate={marketRate} key={item.ticker} />
                   ))}
               </div>
             )}
