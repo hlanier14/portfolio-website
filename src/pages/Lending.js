@@ -2,56 +2,105 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Plot from 'react-plotly.js';
 
+function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 
 function Lending() {
 
-    const [latestProtocolData, setLatestProtocolData] = useState([]);
-    const [historicalProtocolData, setHistoricalProtocolData] = useState([]);
-    const [accountData, setAccountData] = useState({});
+    const [protocolData, setProtocolData] = useState([]);
+
+    const [uniqueProtocols, setUniqueProtocols] = useState([]);
+    const [uniqueNetworks, setUniqueNetworks] = useState([])
+    
+    const [selectedNetwork, setSelectedNetwork] = useState('');
+    const [rateData, setRateData] = useState([]);
+
     const [loading, setLoading] = useState(true);
 
-    // https://lending-m7dl7jaevq-uc.a.run.app
+    // 
     useEffect(() => {
       const fetchData = async () => {
-        const latestProtocolData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/latest");
-        const historicalProtocolData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/historical");
-        const accountData = await axios("https://lending-m7dl7jaevq-uc.a.run.app/wallet/balances");
-        setLatestProtocolData(latestProtocolData.data);
-        setHistoricalProtocolData(historicalProtocolData.data);
-        setAccountData(accountData.data);
+        const response = await axios("https://lending-m7dl7jaevq-uc.a.run.app/protocols/daily");
+        const data = response.data;
+        setProtocolData(data);
+        const networks = [...new Set(data.map(entry => entry.network))];
+        setUniqueNetworks(networks);
+        const protocols = [...new Set(data.map(entry => entry.protocol))];
+        setUniqueProtocols(protocols);
+        setSelectedNetwork('polygon-mainnet')
         setLoading(false);
       };
       fetchData();
     }, []);
 
-    const balanceData = [
-        {
-            x: historicalProtocolData.map((point) => point.date),
-            y: historicalProtocolData.map((point) => point.balance),
-            type: 'scatter',
-            mode: 'lines',
-            marker: { color: 'blue' },
-        },
-    ];
-
-    const balanceLayout = {
-        title: 'Total USDC',
-        yaxis: { title: 'USDC' },
-    };
-
-    const rateData = [
-        {
-            x: historicalProtocolData.map((point) => point.date),
-            y: historicalProtocolData.map((point) => point.APY),
-            type: 'scatter',
-            mode: 'lines',
-            marker: { color: 'blue' },
-        },
-    ];
+    useEffect(() => {
+        const networkData = protocolData.filter(entry => entry.network === selectedNetwork);
+        const marker = {
+            "compound": "dash",
+            "aave": "solid"
+        }
+        const rates = [];
+        uniqueProtocols.forEach(protocol => {
+            const protocolDataFiltered = networkData.filter(entry => entry.protocol === protocol);
+            protocolDataFiltered.forEach(entry => {
+                rates.push({
+                    x: entry.data.map(point => point.date),
+                    y: entry.data.map(point => point.supplyAPR),
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: `${entry.asset}`,
+                    marker: { 
+                        color: getRandomColor() 
+                    },
+                    line: {
+                        dash: marker[protocol]
+                    }
+                });
+            });
+        });
+        setRateData(rates)
+    }, [selectedNetwork]);
 
     const rateLayout = {
-        title: 'Supplied USDC APY',
-        yaxis: { title: '%' },
+        title: `${selectedNetwork}`,
+        yaxis: { title: 'Supply APR (%)' },
+    };
+
+    const marker = {
+        "compound": "dash",
+        "aave": "solid"
+    }
+    const color = {
+        "polygon-mainnet": "red",
+        "optimism-mainnet": "blue",
+        "arbitrum-mainnet": "orange",
+        "avalanche-mainnet": "green"
+    }
+    const overlayData = [];
+    protocolData.forEach(entry => {
+        overlayData.push({
+            x: entry.data.map(point => point.date),
+            y: entry.data.map(point => point.supplyAPR),
+            type: 'scatter',
+            mode: 'lines',
+            name: `${entry.asset}`,
+            marker: { 
+                color: color[entry.network]
+            },
+            line: {
+                dash: marker[entry.protocol]
+            }
+        });
+    });
+    const overlayLayout = {
+        title: 'All Networks',
+        yaxis: { title: 'Supply APR (%)' },
     };
 
     return (
@@ -60,107 +109,20 @@ function Lending() {
                 {loading ? (
                     <div className='flex justify-center self-end pt-10'>Loading...</div>
                 ) : (
-                    <div className='grid justify-items-center'>
-                        <div className='flex justify-center self-end mt-10'>
-                            <div className='mr-10'>
-                                Total Balance: 
-                            </div>
-                            <div className=''>
-                                ${(accountData[0].balanceInUsd + accountData[0].balanceInUsd + latestProtocolData[0].suppliedAssets + latestProtocolData[1].suppliedAssets).toFixed(2)}
-                            </div>
-                        </div>
-                        <div className='self-end mt-10 mb-10'>
-                            Account Balance
-                        </div>
-                        <div className='grid grid-cols-4 grid-rows-3 space-y-2 self-start max-w-screen md:w-1/2 justify-items-center'>
-                            <div></div>
-                            <div>
-                                Balance
-                            </div>
-                            <div>
-                                Price
-                            </div>
-                            <div>
-                                In USD
-                            </div>
-                            <div className='flex'>
-                                <img
-                                    src="/wmatic.svg"
-                                    alt="Matic Logo"
-                                    className="w-10 h-10 self-center"
-                                />
-                                <div className='ml-2 self-center'>
-                                    MATIC
-                                </div>                                         
-                            </div>
-                            <div className='flex self-center'>
-                                {(accountData[0].balance).toFixed(4)}
-                            </div>
-                            <div className='flex self-center'>
-                                ${(accountData[0].price).toFixed(2)}
-                            </div>
-                            <div className='flex self-center'>
-                                ${(accountData[0].balanceInUsd).toFixed(2)}
-                            </div>
-                            <div className='flex'>
-                                <img
-                                    src="/usdc.svg"
-                                    alt="USDC Logo"
-                                    className="w-10 h-10 self-center"
-                                />
-                                <div className='ml-2 self-center'>
-                                    USDC
-                                </div>                                         
-                            </div>
-                            <div className='flex self-center'>
-                                {(accountData[1].balance).toFixed(4)}
-                            </div>
-                            <div className='flex self-center'>
-                                ${(accountData[1].price).toFixed(2)}
-                            </div>
-                            <div className='flex self-center'>
-                                ${(accountData[1].balanceInUsd).toFixed(2)}
-                            </div>
-                        </div>
-                        <div className='self-end mt-10 mb-10'>
-                            Supply Balance
-                        </div>
-                        <div className='grid grid-cols-3 grid-rows-3 md:gap-5 space-y-5 max-w-screen self-start justify-items-center'>
-                            <div></div>
-                            <div>
-                                Interest Rate
-                            </div>
-                            <div>
-                                Balance
-                            </div>
-                            <img
-                                src="/aaveLogo.svg"
-                                alt="Aave Logo"
-                                className="w-24 md:w-32 h-auto mr-5 md:mr-20"
-                            />  
-                            <div className='flex self-center'>
-                                {(latestProtocolData[1].supplyNetAPY * 100).toFixed(2)}%
-                            </div>
-                            <div className='flex self-center'>
-                                ${(latestProtocolData[1].suppliedAssets).toFixed(2)}
-                            </div>
-                            <img
-                                src="/compoundLogo.png"
-                                alt="Compound Logo"
-                                className="w-24 md:w-32 h-auto mr-5 md:mr-20"
-                            />   
-                            <div className='flex self-center'>
-                                {(latestProtocolData[0].supplyNetAPR * 100).toFixed(2)}%
-                            </div>
-                            <div className='flex self-center'>
-                                ${(latestProtocolData[0].suppliedAssets).toFixed(2)}
-                            </div>
-                        </div>
-                        <div className='my-24'>
-                            <Plot data={balanceData} layout={balanceLayout} />
-                        </div>
+                    <div className='grid justify-items-center pt-10'>
+                        <select 
+                            value={selectedNetwork} 
+                            onChange={(event) => { setSelectedNetwork(event.target.value) }}
+                        >
+                            {uniqueNetworks.map(network => (
+                                <option key={network} value={network}>{network}</option>
+                            ))}
+                        </select>
                         <div className='mt-5 mb-24'>
                             <Plot data={rateData} layout={rateLayout} />
+                        </div>
+                        <div className='mt-5 mb-24'>
+                            <Plot data={overlayData} layout={overlayLayout} />
                         </div>
                     </div>
                 )}
