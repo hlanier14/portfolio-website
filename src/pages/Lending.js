@@ -21,6 +21,7 @@ function Lending() {
     const [selectedNetwork, setSelectedNetwork] = useState('');
     const [rateData, setRateData] = useState([]);
     const [supplyData, setSupplyData] = useState([]);
+    const [borrowData, setBorrowData] = useState([]);
 
     const [loading, setLoading] = useState(true);
 
@@ -50,6 +51,7 @@ function Lending() {
         }
         const rates = [];
         const supply = [];
+        const borrow = [];
         uniqueProtocols.forEach(protocol => {
             const protocolDataFiltered = networkData.filter(entry => entry.protocol === protocol);
             protocolDataFiltered.forEach(entry => {
@@ -74,10 +76,15 @@ function Lending() {
                     y: entry.data.map(point => point.totalSupply),
                     ...design
                 });
+                borrow.push({
+                    y: entry.data.map(point => point.totalBorrow),
+                    ...design
+                });
             });
         });
         setRateData(rates)
         setSupplyData(supply)
+        setBorrowData(borrow)
     }, [selectedNetwork]);
 
     const color = {
@@ -88,6 +95,7 @@ function Lending() {
     }
     const avgRateData = [];
     const totalSupplyData = [];
+    const totalBorrowData = [];
     uniqueNetworks.forEach(network => {
         const networkData = protocolData.filter(entry => entry.network === network);
         const maxDataLength = Math.max(...networkData.map(entry => entry.data.length));
@@ -107,6 +115,10 @@ function Lending() {
             const values = networkData.map(entry => entry.data[index] ? entry.data[index].totalSupply : 0);
             return values.reduce((acc, curr) => acc + curr, 0);
         });
+        const totalBorrow = Array.from({ length: maxDataLength }, (_, index) => {
+            const values = networkData.map(entry => entry.data[index] ? entry.data[index].totalBorrow : 0);
+            return values.reduce((acc, curr) => acc + curr, 0);
+        });
         const design = {
             type: 'scatter',
             mode: 'lines',
@@ -123,6 +135,11 @@ function Lending() {
         totalSupplyData.push({
             x: totalSupply.map((_, index) => networkData[0].data[index] ? networkData[0].data[index].date : null),
             y: totalSupply,
+            ...design
+        });
+        totalBorrowData.push({
+            x: totalBorrow.map((_, index) => networkData[0].data[index] ? networkData[0].data[index].date : null),
+            y: totalBorrow,
             ...design
         });
     });
@@ -161,6 +178,15 @@ function Lending() {
                                     }} 
                                 />
                             </div>
+                            <div>
+                                <Plot 
+                                    data={borrowData} 
+                                    layout={{
+                                        title: 'Total Borrow',
+                                        yaxis: { title: '$' },
+                                    }} 
+                                />
+                            </div>
                         </div>
                         <div className='mb-48 space-y-5'>
                             <div className='text-center text-xl'>
@@ -180,6 +206,15 @@ function Lending() {
                                     data={totalSupplyData} 
                                     layout={{
                                         title: 'Total Supply',
+                                        yaxis: { title: '$' },
+                                    }}
+                                />
+                            </div>
+                            <div>
+                                <Plot 
+                                    data={totalBorrowData} 
+                                    layout={{
+                                        title: 'Total Borrow',
                                         yaxis: { title: '$' },
                                     }}
                                 />
