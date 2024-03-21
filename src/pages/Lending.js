@@ -146,20 +146,22 @@ function Lending() {
 
     return (
         <div className="bg-slate-100">
-            <div className="min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+            <div className="min-h-screen w-full mx-auto px-4 sm:px-6 lg:px-8 ">
                 {loading ? (
                     <div className='flex justify-center self-end pt-10'>Loading...</div>
                 ) : (
-                    <div className='grid justify-items-center pt-10'>
-                        <select 
-                            value={selectedNetwork} 
-                            onChange={(event) => { setSelectedNetwork(event.target.value) }}
-                        >
-                            {uniqueNetworks.map(network => (
-                                <option key={network} value={network}>{network}</option>
-                            ))}
-                        </select>
-                        <div className='mt-5 mb-24 space-y-5'>
+                    <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center pt-10 pb-48'>
+                        <div className='space-y-5'>
+                            <div className='text-center'>
+                                <select 
+                                    value={selectedNetwork} 
+                                    onChange={(event) => { setSelectedNetwork(event.target.value) }}
+                                >
+                                    {uniqueNetworks.map(network => (
+                                        <option key={network} value={network}>{network}</option>
+                                    ))}
+                                </select>
+                            </div>
                             <div>
                                 <Plot 
                                     data={rateData} 
@@ -188,7 +190,7 @@ function Lending() {
                                 />
                             </div>
                         </div>
-                        <div className='mb-48 space-y-5'>
+                        <div className='space-y-5'>
                             <div className='text-center text-xl'>
                                 All Networks
                             </div>
