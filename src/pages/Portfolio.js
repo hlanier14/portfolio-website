@@ -1,25 +1,26 @@
 import React from "react";
-import ArticleTile from "../components/ArticleTile";
-import articles from "../data/articles.json";
+import ProjectTile from "../components/ProjectTile";
+import projects from "../data/projects.json";
 
 function Portfolio() {
     return (
-        <div className="bg-slate-100">
-            <div className="flex flex-col min-h-screen w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-                <div class="my-10 mx-5 md:m-20">
-                    <div class="text-2xl">
-                        Portfolio
-                        <hr class="h-px my-8 bg-gray-200 border-0"></hr>
+        <div className="bg-background-default dark:bg-background-dark">
+            <div className="flex flex-col min-h-screen w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="my-6 md:my-8 w-full">
+                    <div className="text-2xl text-text-primary">
+                        Projects
+                        <hr className="h-px my-6 md:my-8 border-0 bg-surface-border dark:bg-surface-border-dark"></hr>
                     </div>
-                    <div class="grid grid-cols-1 gap-7 md:mx-10 mb-20">
-                        { articles.map(function(item) {
+                    <div className="grid grid-cols-1 gap-6 md:gap-7 mb-12 md:mb-16">
+                        { projects.map(function(item, index) {
                             return (
-                                <ArticleTile
+                                <ProjectTile
+                                    key={index}
                                     title={ item["Title"] }
                                     subtitle={ item["Subtitle"] }
                                     date={ item["Date"] }
                                     coverImage={ item["Cover Image"] }
-                                    links={ item["Links"] }
+                                    link={ item["Link"] }
                                 />
                             )
                         })}

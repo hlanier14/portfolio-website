@@ -81,49 +81,5 @@
             "Flask",
             "GitHub"
         ]
-    },
-    {
-        "Company": "Haven Rentals LLC",
-        "Title": "Founder",
-        "DateRange": "September 2019 - May 2022",
-        "Description": [
-            "Short-term rental company focused on providing comfortable stays for travelers in the St. Louis area."
-        ],
-        "Links": [],
-        "isCurrent": false,
-        "Skills": [
-            "Leadership",
-            "Customer Service"
-        ]
-    },
-    {
-        "Company": "Invesco",
-        "Title": "Performance Analyst Investment Intern",
-        "DateRange": "March 2021 - August 2021",
-        "Description": [
-            "Automated an Excel fund report for portfolio managers with a Power BI dashboard, saving 40 hours monthly.",
-            "Composed SQL queries to answer questions on fund performance for the portfolio management team."    
-        ],
-        "Links": [],
-        "isCurrent": false,
-        "Skills": [
-            "Python",
-            "SQL",
-            "Power BI"
-        ]
-    },
-    {
-        "Company": "Willow Bend Mortgage",
-        "Title": "Technology Intern",
-        "DateRange": "May 2020 - August 2021",
-        "Description": [
-            "Implemented a predictive model with SQL to forecast company-wide and branch level production with 89% accuracy based on current pipeline and historical data."
-        ],
-        "Links": [],
-        "isCurrent": false,
-        "Skills": [
-            "SQL",
-            "Domo"
-        ]
     }
 ]
