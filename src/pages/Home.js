@@ -9,7 +9,7 @@ function Home() {
                     <div className="flex flex-col items-center text-center space-y-6 md:space-y-8">
                         {/* Profile Picture */}
                         <div className="relative">
-                            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-surface-border dark:ring-surface-border-dark shadow-lg">
+                            <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden ring-4 ring-surface-border dark:ring-surface-border-dark shadow-lg">
                                 <img
                                     src="/profile.jpg"
                                     alt="Harrison Lanier"

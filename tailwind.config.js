@@ -1,80 +1,86 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
   darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        // Primary colors (light mode defaults, use dark: variants in components)
-        'primary': {
-          main: '#2563eb',      // blue-600 (light)
-          hover: '#1d4ed8',     // blue-700 (light)
-          active: '#1e40af',    // blue-800 (light)
-          text: '#ffffff',
-          DEFAULT: '#2563eb',
+        /* Accent / Highlight Blue */
+        primary: {
+          main: "#3b82f6",       // blue-500 (bright highlight)
+          hover: "#2563eb",      // blue-600
+          active: "#1e40af",     // blue-800
+          text: "#ffffff",
+          DEFAULT: "#3b82f6",
         },
-        // Secondary colors
-        'secondary': {
-          main: '#2563eb',      // blue-600 (light)
-          hover: '#3b82f6',     // blue-500 (light)
-          active: '#1d4ed8',     // blue-700 (light)
-          text: '#ffffff',
-          DEFAULT: '#2563eb',
+
+        /* Supporting Blue palette */
+        secondary: {
+          main: "#2563eb",
+          hover: "#3b82f6",
+          active: "#1d4ed8",
+          text: "#ffffff",
+          DEFAULT: "#2563eb",
         },
-        // Background colors
-        'background': {
-          default: '#ffffff',   // white (light)
-          dark: '#1f2937',      // dark mode background (was gray-800)
-          'dark-darker': '#111827', // darker dark mode background (was gray-900)
-          secondary: '#f9fafb',  // gray-50 (light)
-          tertiary: '#f3f4f6',   // gray-100 (light)
-          DEFAULT: '#ffffff',
+
+        /* Dark Mode Background System (New Defaults) */
+        background: {
+          default: "#1f1f1f",       // dark gray
+          dark: "#181818",          // deeper gray
+          "dark-darker": "#111111", // nearly black
+          secondary: "#2a2a2a",     // panel/section backgrounds
+          tertiary: "#333333",      // subtle raised layer
+          DEFAULT: "#1f1f1f",
         },
-        // Surface colors
-        'surface': {
-          default: '#ffffff',   // white (light)
-          dark: '#374151',      // dark mode surface (was gray-700)
-          elevated: '#f9fafb',   // gray-50 (light)
-          border: '#e5e7eb',     // gray-200 (light)
-          'border-dark': '#374151', // dark mode border (was gray-700)
-          'border-hover': '#d1d5db', // gray-300 (light)
-          DEFAULT: '#ffffff',
+
+        /* Surface / Cards / Borders for Dark UI */
+        surface: {
+          default: "#2a2a2a",        // card surface
+          dark: "#242424",           // slightly darker
+          elevated: "#303030",       // for elevated cards
+          border: "#3f3f3f",
+          "border-dark": "#4b4b4b",
+          "border-hover": "#5c5c5c",
+          DEFAULT: "#2a2a2a",
         },
-        // Text colors (uses CSS variables for dark mode support)
-        'text': {
-          primary: 'var(--text-primary)',
-          secondary: 'var(--text-secondary)',
-          tertiary: 'var(--text-tertiary)',
-          inverse: 'var(--text-inverse)',
-          DEFAULT: 'var(--text-primary)',
+
+        /* Text Colors on Dark Background */
+        text: {
+          primary: "#f3f4f6",      // gray-100
+          secondary: "#d1d5db",    // gray-300
+          tertiary: "#9ca3af",     // gray-400
+          inverse: "#111827",
+          DEFAULT: "#f3f4f6",
         },
-        // Border colors
-        'border': {
-          default: '#e5e7eb',    // gray-200 (light)
-          hover: '#d1d5db',      // gray-300 (light)
-          focus: '#111827',      // gray-900 (light)
-          DEFAULT: '#e5e7eb',
+
+        /* Borders */
+        border: {
+          default: "#3f3f3f",
+          hover: "#5c5c5c",
+          focus: "#3b82f6",       // blue highlight focus
+          DEFAULT: "#3f3f3f",
         },
-        // Status colors
-        'status': {
-          success: '#16a34a',      // green-600 (light)
-          error: '#dc2626',      // red-600 (light)
-          warning: '#d97706',      // amber-600 (light)
-          info: '#2563eb',      // blue-600 (light)
+
+        /* Status Colors (kept similar) */
+        status: {
+          success: "#22c55e",
+          error: "#ef4444",
+          warning: "#f59e0b",
+          info: "#3b82f6",
         },
       },
+
       boxShadow: {
-        'theme': '0 1px 2px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.06)',
-        'theme-dark': '0 1px 2px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.3)',
+        theme: "0 1px 2px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.4)",
+        "theme-dark": "0 1px 2px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.6)",
       },
+
       borderRadius: {
-        'theme-sm': '0.5rem',
-        'theme-md': '0.75rem',
-        'theme-lg': '1rem',
+        "theme-sm": "0.5rem",
+        "theme-md": "0.75rem",
+        "theme-lg": "1rem",
       },
     },
   },
   plugins: [],
-}
+};

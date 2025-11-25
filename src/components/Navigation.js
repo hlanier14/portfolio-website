@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { HiMoon, HiSun } from "react-icons/hi";
-import { useDarkMode } from "../hooks/useDarkMode";
+import InitialsLogo from "./InitialsLogo";
 
 function Navigation() {
-    const { theme, toggle } = useDarkMode();
     const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const dropdownRef = useRef(null);
@@ -35,7 +33,6 @@ function Navigation() {
     }, [isMobileMenuOpen]);
 
     const navItems = [
-        { path: "/", label: "Home" },
         { path: "/about", label: "About" },
         { path: "/projects", label: "Projects" },
         { path: "/contact", label: "Contact" },
@@ -56,17 +53,10 @@ function Navigation() {
                     <div className="flex items-center justify-between h-16">
                         {/* Logo/Name */}
                         <Link to="/" className="flex items-center space-x-3 flex-shrink-0">
-                            <img
-                                src="./profile.jpg"
-                                alt="Harrison Lanier"
-                                className="w-10 h-10 rounded-full object-cover"
-                            />
-                            <h1 className="text-lg font-bold text-text-primary">
-                                Harrison Lanier
-                            </h1>
+                            <InitialsLogo className="w-10 h-10" />
                         </Link>
 
-                        {/* Desktop Navigation & Theme Toggle - Right Aligned */}
+                        {/* Desktop Navigation - Right Aligned */}
                         <div className="hidden md:flex items-center space-x-1">
                             {navItems.map((item) => (
                                 <Link
@@ -81,15 +71,6 @@ function Navigation() {
                                     {item.label}
                                 </Link>
                             ))}
-                            <div className="ml-4 pl-4 border-l border-surface-border dark:border-surface-border-dark">
-                                <button
-                                    onClick={toggle}
-                                    className="transition-colors text-text-secondary hover:text-primary-main"
-                                    aria-label="Toggle theme"
-                                >
-                                    {theme === 'dark' ? <HiSun size={20} /> : <HiMoon size={20} />}
-                                </button>
-                            </div>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -130,15 +111,6 @@ function Navigation() {
                                         </Link>
                                     ))}
                                 </nav>
-                                <div className="flex justify-center items-center mt-4 pt-4 border-t border-surface-border dark:border-surface-border-dark">
-                                    <button
-                                        onClick={toggle}
-                                        className="transition-colors text-text-secondary hover:text-primary-main"
-                                        aria-label="Toggle theme"
-                                    >
-                                        {theme === 'dark' ? <HiSun size={22} /> : <HiMoon size={22} />}
-                                    </button>
-                                </div>
                             </div>
                         </div>
                     </>

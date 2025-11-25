@@ -4,7 +4,7 @@
         "subtitle": "Have you ever needed to book a Global Entry appointment? I have, and the next available interview in the entire state of Illinois was three months into the future. Not wanting to constantly check TTP's site for closer open timeslots, I built a scanner to automatically alert me via email and SMS when timeslots open up at nearby locations. I am in the process of making the scanner available to others looking for a Global Entry appointment.",
         "date": "March 2nd, 2023",
         "coverImage": "ttp-scanner.jpg",
-        "link": "https://ttpscanner.com/locations/global-entry"
+        "link": "https://ttpscanner.com"
     },
     {
         "title": "Weather Forecasts",

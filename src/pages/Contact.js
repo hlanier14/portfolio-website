@@ -53,7 +53,7 @@ function Contact() {
 
                     <div className="grid md:grid-cols-2 gap-8 md:gap-12">
                         {/* Contact Form */}
-                        <div className="order-2 md:order-1">
+                        <div className="order-1 md:order-1">
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
                                     <label
@@ -129,7 +129,7 @@ function Contact() {
                         </div>
 
                         {/* Contact Buttons */}
-                        <div className="order-1 md:order-2">
+                        <div className="order-2 md:order-2">
                             <div className="bg-background-secondary dark:bg-background-dark-darker rounded-lg p-6 md:p-8 h-full flex flex-col justify-center space-y-6">
                                 <div>
                                     <h2 className="text-xl font-semibold mb-4 text-text-primary">
