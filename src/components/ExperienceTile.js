@@ -1,72 +1,160 @@
 import React, { useState } from "react";
-import { HiOutlineExternalLink } from "react-icons/hi";
+import { HiOutlineExternalLink, HiX } from "react-icons/hi";
 
-function ExperienceTile({ company, title, dateRange, description, links, isCurrent, skills }) {
-    const [showDetails, setShowDetails] = useState(false);
+function ExperienceTile({ company, title, dateRange, description, location, links, isCurrent, skills }) {
+    const [showModal, setShowModal] = useState(false);
+
+    const handleTileClick = (e) => {
+        // Don't open modal if clicking on links
+        if (e.target.closest('a')) {
+            return;
+        }
+        setShowModal(true);
+    };
+
+    const handleCloseModal = (e) => {
+        if (e.target === e.currentTarget || e.target.closest('button')) {
+            setShowModal(false);
+        }
+    };
 
     return (
-        <div>
-            <li className="mb-10 ml-10">            
-                <span 
-                    className="absolute flex items-center justify-center w-6 h-6 rounded-full -left-3 ring-8 bg-primary-main/10 dark:bg-primary-main/30 ring-background-default dark:ring-background-dark"
-                >
-                    <svg aria-hidden="true" className="w-3 h-3 text-primary-active dark:text-primary-main" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd">
-                        </path>
-                    </svg>
-                </span>
-                <h3 className="flex items-center mb-1 text-xl font-semibold text-text-primary">
-                    { company }
-                </h3>
-                <h3 className="flex items-center mb-1 text-lg font-semibold text-text-primary">
-                    { title }
-                </h3>
-                <time className="block mb-2 text-sm font-normal leading-none text-text-tertiary">
-                    { dateRange }
-                </time>
-                <div className="flex flex-wrap w-full md:w-2/3 mt-5 mb-2">
-                    { skills.map(function(item, index){
-                        return (
-                            <div key={index} className="rounded-md text-sm mb-1 mr-1 px-2 border bg-primary-main/10 dark:bg-primary-main/30 text-primary-active dark:text-primary-main border-primary-main/20 dark:border-primary-main/50">
-                                {item}
+        <>
+            <div 
+                onClick={handleTileClick}
+                className="bg-background-secondary dark:bg-background-dark-darker rounded-lg p-6 border border-surface-border dark:border-surface-border-dark hover:border-primary-main/50 dark:hover:border-primary-main/50 transition-all duration-200 cursor-pointer hover:shadow-lg hover:scale-[1.01]"
+            >
+                <div className="space-y-4">
+                    <div>
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                            <div>
+                                <h3 className="text-xl font-bold text-text-primary mb-1">
+                                    {company}
+                                </h3>
+                                <h4 className="text-lg font-semibold text-text-primary mb-1">
+                                    {title}
+                                </h4>
+                                {location && (
+                                    <p className="text-sm text-text-tertiary">
+                                        {location}
+                                    </p>
+                                )}
                             </div>
-                        );
-                    })}
-                </div> 
-                { (links.length !== 0) ? (
-                    <div className="mb-2">
-                        { links.map(function(item, index){
-                            return (
-                            <a key={index} href={ item["Link"] } target="_blank" rel="noreferrer" className="inline-flex items-center mr-2 px-4 py-2 text-sm font-medium rounded-lg focus:z-10 focus:ring-4 focus:outline-none transition-colors shadow-sm bg-primary-main text-primary-text border border-primary-main hover:bg-primary-hover">
-                                <HiOutlineExternalLink />
-                                <div className="ml-2">
-                                    { item["Title"] }
-                                </div>
-                            </a>
-                            )
-                        })}
-                    </div>) : (<></>)
-                }
-                <div className="my-2">
-                    { showDetails ? (
-                        <>
-                            <ul className="ml-5 list-disc my-2 text-text-secondary">
-                                { description.map(function(item, index){
-                                    return <li key={index}>{item}</li>;
-                                })}
-                            </ul>
-                            <button className="text-sm font-normal leading-none transition-colors text-primary-main hover:text-primary-hover" onClick={() => setShowDetails(false)}>
-                                Hide Details
-                            </button>
-                        </>) : (
-                        <button className="text-sm font-normal leading-none transition-colors text-primary-main hover:text-primary-hover" onClick={() => setShowDetails(true)}>
-                            Details
-                        </button>)
-                    }
+                            <time className="text-sm font-medium text-text-secondary whitespace-nowrap">
+                                {dateRange}
+                            </time>
+                        </div>
+                    </div>
+                    
+                    {description && description.length > 0 && (
+                        <div className="pt-1">
+                            <p className="text-sm text-text-secondary line-clamp-2">
+                                {description[0]}
+                            </p>
+                        </div>
+                    )}
+                    
                 </div>
-            </li>
-        </div>
+            </div>
+
+            {/* Modal */}
+            {showModal && (
+                <div 
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 dark:bg-black/70 backdrop-blur-sm"
+                    onClick={handleCloseModal}
+                >
+                    <div 
+                        className="relative bg-background-default dark:bg-background-dark rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-surface-border dark:border-surface-border-dark"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button
+                            onClick={handleCloseModal}
+                            className="absolute top-4 right-4 p-2 rounded-lg text-text-tertiary hover:text-text-primary hover:bg-background-secondary dark:hover:bg-background-dark-darker transition-colors"
+                            aria-label="Close modal"
+                        >
+                            <HiX size={24} />
+                        </button>
+                        
+                        <div className="p-6 md:p-8">
+                            <div className="pr-10 mb-6">
+                                <h2 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
+                                    {company}
+                                </h2>
+                                <h3 className="text-xl md:text-2xl font-semibold text-text-primary mb-2">
+                                    {title}
+                                </h3>
+                                {location && (
+                                    <p className="text-base text-text-secondary mb-2">
+                                        {location}
+                                    </p>
+                                )}
+                                <time className="block text-base text-text-secondary font-medium">
+                                    {dateRange}
+                                </time>
+                            </div>
+                            
+                            <div className="mb-6">
+                                <h4 className="text-lg font-semibold text-text-primary mb-3">
+                                    Description
+                                </h4>
+                                <ul className="space-y-3 ml-5">
+                                    {description.map(function(item, index){
+                                        return (
+                                            <li key={index} className="text-base text-text-secondary list-disc">
+                                                {item}
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </div>
+                            
+                            <div className="mb-6">
+                                <h4 className="text-lg font-semibold text-text-primary mb-3">
+                                    Skills & Technologies
+                                </h4>
+                                <div className="flex flex-wrap gap-2">
+                                    {skills.map(function(item, index){
+                                        return (
+                                            <span 
+                                                key={index} 
+                                                className="inline-flex items-center px-3 py-1.5 rounded-md text-sm font-medium bg-primary-main/10 dark:bg-primary-main/20 text-primary-active dark:text-primary-main border border-primary-main/20 dark:border-primary-main/40"
+                                            >
+                                                {item}
+                                            </span>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                            
+                            {links.length > 0 && (
+                                <div>
+                                    <h4 className="text-lg font-semibold text-text-primary mb-3">
+                                        Links
+                                    </h4>
+                                    <div className="flex flex-wrap gap-3">
+                                        {links.map(function(item, index){
+                                            return (
+                                                <a 
+                                                    key={index} 
+                                                    href={item.link} 
+                                                    target="_blank" 
+                                                    rel="noreferrer"
+                                                    className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg bg-primary-main text-primary-text hover:bg-primary-hover transition-colors"
+                                                >
+                                                    <HiOutlineExternalLink className="mr-2" size={16} />
+                                                    {item.title}
+                                                </a>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     );
-  }
-  
-  export default ExperienceTile;
+}
+
+export default ExperienceTile;

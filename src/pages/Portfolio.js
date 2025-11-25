@@ -4,7 +4,7 @@ import projects from "../data/projects.json";
 
 function Portfolio() {
     return (
-        <div className="bg-background-default dark:bg-background-dark">
+        <section id="projects" className="bg-background-default dark:bg-background-dark pt-16">
             <div className="flex flex-col min-h-screen w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="my-6 md:my-8 w-full">
                     <div className="text-2xl text-text-primary">
@@ -16,18 +16,18 @@ function Portfolio() {
                             return (
                                 <ProjectTile
                                     key={index}
-                                    title={ item["Title"] }
-                                    subtitle={ item["Subtitle"] }
-                                    date={ item["Date"] }
-                                    coverImage={ item["Cover Image"] }
-                                    link={ item["Link"] }
+                                    title={item.title}
+                                    subtitle={item.subtitle}
+                                    date={item.date}
+                                    coverImage={item.coverImage}
+                                    link={item.link}
                                 />
                             )
                         })}
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

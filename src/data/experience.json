@@ -1,16 +1,18 @@
 [
     {
-        "Company": "Clickvoyant (Techstars '22)",
-        "Title": "Data Engineer",
-        "DateRange": "February 2023 - Present",
-        "Description": [
+        "company": "Clickvoyant (Techstars '22)",
+        "title": "Data Engineer",
+        "description": "",
+        "location": "Remote",
+        "dateRange": "February 2023 - Present",
+        "bulletPoints": [
             "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
             "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
         ],
-        "Links": [
+        "links": [
         ], 
         "isCurrent": false,
-        "Skills": [
+        "skills": [
             "Amazon S3",
             "GCP",
             "Spark",
@@ -23,28 +25,30 @@
         ]
     }, 
     {
-        "Company": "Parkster.ai (Techstars '22)",
-        "Title": "Co-Founder & CTO",
-        "DateRange": "August 2022 - February 2023",
-        "Description": [
+        "company": "Parkster.ai (Techstars '22)",
+        "title": "Co-Founder & CTO",
+        "description": "",
+        "location": "Chicago, IL",
+        "dateRange": "August 2022 - February 2023",
+        "bulletPoints": [
             "Developed a TensorFlow model to detect real-time availability of over 200 parking spaces with 92% accuracy.",
             "Deployed an application on GCP to analyze parking spot pricing data for event attendees by extracting real-time quotes from 2k+ garages across multiple platforms.",
             "Constructed a React app allowing team members to add parking spaces to the internal BigQuery database."            
         ],
-        "Links": [
+        "links": [
             {
-                "Title": "Parkster.ai",
-                "Link": "https://parksterai.com",
-                "Icon": ""
+                "title": "Parkster.ai",
+                "link": "https://parksterai.com",
+                "icon": ""
             },
             {
-                "Title": "Techstars",
-                "Link":  "https://www.techstars.com/newsroom/techstars-chicago-powered-by-j-p-morgan-announces-inaugural-class-of-2022",
-                "Icon": ""
+                "title": "Techstars",
+                "link":  "https://www.techstars.com/newsroom/techstars-chicago-powered-by-j-p-morgan-announces-inaugural-class-of-2022",
+                "icon": ""
             }
         ], 
         "isCurrent": false,
-        "Skills": [
+        "skills": [
             "GCP",
             "Docker",
             "Python",
@@ -58,22 +62,24 @@
         ]
     }, 
     {
-        "Company": "Saint Louis University",
-        "Title": "Research Assistant",
-        "DateRange": "June 2022 - August 2022",
-        "Description": [
+        "company": "Saint Louis University",
+        "title": "Research Assistant",
+        "description": "",
+        "location": "St. Louis, MO",
+        "dateRange": "June 2022 - August 2022",
+        "bulletPoints": [
             "Designed a Flask application for annotating bounding boxes on images and stored changes in a SQL database.",
             "Trained a PyTorch model to detect furniture in hotel room images for TraffickCam (traffickcam.com)."     
         ],
-        "Links": [
+        "links": [
             {
-                "Title": "TraffickCam",
-                "Link": "http://traffickcam.com/about",
-                "Icon": ""
+                "title": "TraffickCam",
+                "link": "http://traffickcam.com/about",
+                "icon": ""
             }
         ],
         "isCurrent": false,
-        "Skills": [
+        "skills": [
             "Python",
             "SQL",
             "PyTorch",
