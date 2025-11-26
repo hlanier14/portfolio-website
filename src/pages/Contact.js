@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { HiOutlineMail } from "react-icons/hi";
 import { RxLinkedinLogo } from "react-icons/rx";
 
 function Contact() {
+    const siteUrl = "https://harrisonlanier.com";
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -39,7 +41,38 @@ function Contact() {
     };
 
     return (
-        <section id="contact" className="pt-16 min-h-screen">
+        <>
+            <Helmet>
+                <title>Contact - Harrison Lanier | Machine Learning Engineer</title>
+                <meta
+                    name="description"
+                    content="Contact Harrison Lanier - Machine Learning Engineer. Get in touch for ML engineering collaborations, questions, or opportunities."
+                />
+                <link rel="canonical" href={`${siteUrl}/contact`} />
+                <meta property="og:title" content="Contact - Harrison Lanier | Machine Learning Engineer" />
+                <meta property="og:description" content="Contact Harrison Lanier - Machine Learning Engineer. Get in touch for ML engineering collaborations, questions, or opportunities." />
+                <meta property="og:url" content={`${siteUrl}/contact`} />
+                <meta property="og:type" content="website" />
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "ContactPage",
+                        "name": "Contact Harrison Lanier",
+                        "description": "Contact page for Harrison Lanier - Machine Learning Engineer",
+                        "url": `${siteUrl}/contact`,
+                        "mainEntity": {
+                            "@type": "Person",
+                            "name": "Harrison Lanier",
+                            "jobTitle": "Machine Learning Engineer",
+                            "email": "hlanier90@gmail.com",
+                            "sameAs": [
+                                "https://linkedin.com/in/harrison-lanier"
+                            ]
+                        }
+                    }, null, 0)}
+                </script>
+            </Helmet>
+            <section id="contact" className="pt-16 min-h-screen">
             <div className="bg-background-default dark:bg-background-dark">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
                     <div className="text-center mb-8 md:mb-12">
@@ -165,6 +198,7 @@ function Contact() {
                 </div>
             </div>
         </section>
+        </>
     );
 }
 

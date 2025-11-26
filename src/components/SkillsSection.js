@@ -159,11 +159,6 @@ function SkillsSection() {
                             Next
                         </button>
                     </div>
-                    
-                    {/* Page Info */}
-                    <div className="text-sm text-text-tertiary">
-                        Showing {startIndex + 1}-{Math.min(endIndex, filteredSkills.length)} of {filteredSkills.length} skills
-                    </div>
                 </div>
             )}
             

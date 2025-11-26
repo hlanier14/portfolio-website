@@ -120,11 +120,6 @@
       "logo": "https://avatars.githubusercontent.com/u/38220399?s=280&v=4"
     },
     {
-      "name": "Cloud Run Functions",
-      "type": "Cloud - GCP",
-      "logo": "https://codelabs.developers.google.com/static/codelabs/cloud-starting-cloudfunctions/img/3b93ba3023ef58a5.png"
-    },
-    {
       "name": "BigQuery",
       "type": "Cloud - GCP",
       "logo": "https://www.apono.io/wp-content/uploads/2023/07/60ad30603ce79d2498f80739_google-bigquery-logo.png"
