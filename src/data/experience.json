@@ -5,6 +5,7 @@
         "description": "",
         "location": "Remote",
         "dateRange": "February 2023 - Present",
+        "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQE25hn1pz2KsA/company-logo_200_200/company-logo_200_200/0/1641015560548/clickvoyant_logo?e=1766016000&v=beta&t=EeVPHy6b7OIa1Zc4_xSbxit5WaxqmnEnSl24ytXS6Is",
         "bulletPoints": [
             "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
             "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
@@ -30,6 +31,7 @@
         "description": "",
         "location": "Chicago, IL",
         "dateRange": "August 2022 - February 2023",
+        "logo": "https://i.tracxn.com/logo/company/parkster.ai_Logo_0bba4bfc-23cb-4fc6-a7cd-94438a28f159.jpg",
         "bulletPoints": [
             "Developed a TensorFlow model to detect real-time availability of over 200 parking spaces with 92% accuracy.",
             "Deployed an application on GCP to analyze parking spot pricing data for event attendees by extracting real-time quotes from 2k+ garages across multiple platforms.",
@@ -67,6 +69,7 @@
         "description": "",
         "location": "St. Louis, MO",
         "dateRange": "June 2022 - August 2022",
+        "logo": "https://imageio.forbes.com/specials-images/imageserve/5d52c52268cb0a000916d259/0x0.jpg?format=jpg&crop=416,416,x0,y0,safe&height=200&width=200&fit=bounds",
         "bulletPoints": [
             "Designed a Flask application for annotating bounding boxes on images and stored changes in a SQL database.",
             "Trained a PyTorch model to detect furniture in hotel room images for TraffickCam (traffickcam.com)."     

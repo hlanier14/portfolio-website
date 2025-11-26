@@ -39,8 +39,6 @@ function SkillsSection() {
     // Handle page change
     const handlePageChange = (page) => {
         setCurrentPage(page);
-        // Scroll to top of skills section when page changes
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
@@ -71,7 +69,7 @@ function SkillsSection() {
                 {paginatedSkills.map((skill, index) => (
                     <div
                         key={index}
-                        className="flex flex-col items-center justify-center p-4 md:p-6 bg-background-secondary dark:bg-background-dark rounded-lg border border-surface-border dark:border-surface-border-dark hover:shadow-lg transition-shadow cursor-pointer"
+                        className="bg-background-secondary dark:bg-background-dark-darker flex flex-col items-center justify-center p-4 md:p-6 bg-background-secondary dark:bg-background-dark rounded-lg border border-surface-border dark:border-surface-border-dark hover:shadow-lg transition-shadow cursor-pointer"
                     >
                         {skill.logo ? (
                             <img

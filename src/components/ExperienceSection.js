@@ -24,6 +24,7 @@ function ExperienceSection() {
                                 links={item.links}
                                 isCurrent={item.isCurrent}
                                 skills={item.skills}
+                                logo={item.logo}
                             />
                         );
                     })}
