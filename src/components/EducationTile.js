@@ -7,7 +7,7 @@ import {
     HiX 
 } from "react-icons/hi";
 
-function ExperienceTile({ company, title, dateRange, description, location, links, isCurrent, skills, logo }) {
+function EducationTile({ school, degree, dateRange, description, location, links, skills, logo, isCurrent }) {
     const [showModal, setShowModal] = useState(false);
 
     const handleTileClick = (e) => {
@@ -39,7 +39,7 @@ function ExperienceTile({ company, title, dateRange, description, location, link
                         <div className="flex-shrink-0">
                             <img 
                                 src={logo} 
-                                alt={`${company} logo`}
+                                alt={`${school} logo`}
                                 className="w-12 h-12 object-contain rounded"
                             />
                         </div>
@@ -47,7 +47,7 @@ function ExperienceTile({ company, title, dateRange, description, location, link
                     <div className="flex-1 space-y-2">
                         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                             <h3 className="text-lg text-text-primary">
-                                <span className="font-semibold">{title}</span>, {company}
+                                <span className="font-semibold">{degree}</span>, {school}
                             </h3>
                             <time className="text-sm font-medium text-text-secondary whitespace-nowrap">
                                 {dateRange}
@@ -90,7 +90,7 @@ function ExperienceTile({ company, title, dateRange, description, location, link
                                         <div className="flex-shrink-0">
                                             <img 
                                                 src={logo} 
-                                                alt={`${company} logo`}
+                                                alt={`${school} logo`}
                                                 className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-xl border border-surface-border/70 dark:border-surface-border-dark/70"
                                             />
                                         </div>
@@ -98,10 +98,10 @@ function ExperienceTile({ company, title, dateRange, description, location, link
                                     <div className="flex-1 space-y-3">
                                         <div className="space-y-1">
                                             <h2 className="text-2xl md:text-3xl font-semibold text-text-primary">
-                                                {title}
+                                                {degree}
                                             </h2>
                                             <p className="text-lg text-text-secondary">
-                                                {company}
+                                                {school}
                                             </p>
                                         </div>
                                         <div className="flex flex-col gap-2">
@@ -144,7 +144,7 @@ function ExperienceTile({ company, title, dateRange, description, location, link
                                         <div className="space-y-4">
                                             <div className="flex items-center justify-between">
                                                 <h4 className="text-lg font-semibold text-text-primary">
-                                                    Impact
+                                                    Highlights
                                                 </h4>
                                                 <span className="hidden md:inline-flex h-px w-24 bg-surface-border/60 dark:bg-surface-border-dark/60"></span>
                                             </div>
@@ -215,4 +215,5 @@ function ExperienceTile({ company, title, dateRange, description, location, link
     );
 }
 
-export default ExperienceTile;
+export default EducationTile;
+

@@ -1,15 +1,17 @@
 [
     {
         "title": "TTP Appointment Scanner",
+        "shortDescription": "Automated scanner that alerts users via email and SMS when Global Entry appointment timeslots become available at nearby locations.",
         "subtitle": "Have you ever needed to book a Global Entry appointment? I have, and the next available interview in the entire state of Illinois was three months into the future. Not wanting to constantly check TTP's site for closer open timeslots, I built a scanner to automatically alert me via email and SMS when timeslots open up at nearby locations. I am in the process of making the scanner available to others looking for a Global Entry appointment.",
-        "date": "March 2nd, 2023",
+        "date": "March 2023",
         "coverImage": "ttp-scanner.jpg",
         "link": "https://ttpscanner.com"
     },
     {
         "title": "Weather Forecasts",
+        "shortDescription": "Data Science capstone project analyzing weather forecast accuracy across 160 U.S. cities. Dataset selected by Tidy Tuesday for their weekly challenge.",
         "subtitle": "This project was the capstone of my Data Science degree. We wanted to try to explain why some areas of the U.S. struggle with temperature prediction. We gathered, cleaned, and analyzed weather forecast and geographic data on 160 cities. In December 2022, the dataset was selected by Tidy Tuesday for its weekly data wrangling and visualization challenge.",
-        "date": "February 20th, 2023",
+        "date": "February 2023",
         "coverImage": "weather-forecasts.jpg",
         "link": "https://github.com/hlanier14/weather-forecasts"
     }

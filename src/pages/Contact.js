@@ -84,10 +84,45 @@ function Contact() {
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-                        {/* Contact Form */}
+                    <div className="rounded-lg bg-background-secondary dark:bg-background-dark-darker grid md:grid-cols-2 gap-8 md:gap-12 p-6 md:p-8">
+                        {/* Contact Buttons */}
                         <div className="order-1 md:order-1">
-                            <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="h-full flex flex-col justify-center space-y-6">
+                                <div>
+                                    <h2 className="text-xl font-semibold mb-4 text-text-primary">
+                                        Reach out directly
+                                    </h2>
+                                </div>
+
+                                <div className="space-y-4">
+                                    <a
+                                        href="mailto:hlanier90@gmail.com"
+                                        className="flex items-center justify-center space-x-3 w-full px-6 py-3 bg-primary-main text-primary-text font-medium rounded-lg hover:bg-primary-hover active:bg-primary-active transition-colors"
+                                    >
+                                        <HiOutlineMail size={20} />
+                                        <span>Email Me</span>
+                                    </a>
+
+                                    <a
+                                        href="https://linkedin.com/in/harrison-lanier"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="flex items-center justify-center space-x-3 w-full px-6 py-3 bg-background-default dark:bg-background-dark border-2 border-primary-main text-primary-main font-medium rounded-lg hover:bg-primary-main/10 dark:hover:bg-primary-main/20 transition-colors"
+                                    >
+                                        <RxLinkedinLogo size={20} />
+                                        <span>LinkedIn</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Contact Form */}
+                        <div className="order-2 md:order-2">
+                            <div className="h-full">
+                                <h2 className="text-xl font-semibold mb-4 text-text-primary">
+                                    Send a message
+                                </h2>
+                                <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
                                     <label
                                         htmlFor="name"
@@ -153,45 +188,12 @@ function Contact() {
                                     {isSubmitting ? "Sending..." : "Send Message"}
                                 </button>
 
-                                {submitStatus === "success" && (
-                                    <div className="p-4 rounded-lg bg-status-success/10 border border-status-success/20 text-status-success text-sm">
-                                        Message sent successfully! I'll get back to you soon.
-                                    </div>
-                                )}
-                            </form>
-                        </div>
-
-                        {/* Contact Buttons */}
-                        <div className="order-2 md:order-2">
-                            <div className="bg-background-secondary dark:bg-background-dark-darker rounded-lg p-6 md:p-8 h-full flex flex-col justify-center space-y-6">
-                                <div>
-                                    <h2 className="text-xl font-semibold mb-4 text-text-primary">
-                                        Or reach out directly
-                                    </h2>
-                                    <p className="text-sm md:text-base text-text-secondary mb-6">
-                                        Prefer to connect through email or LinkedIn? Click the buttons below.
-                                    </p>
-                                </div>
-
-                                <div className="space-y-4">
-                                    <a
-                                        href="mailto:hlanier90@gmail.com"
-                                        className="flex items-center justify-center space-x-3 w-full px-6 py-3 bg-primary-main text-primary-text font-medium rounded-lg hover:bg-primary-hover active:bg-primary-active transition-colors"
-                                    >
-                                        <HiOutlineMail size={20} />
-                                        <span>Email Me</span>
-                                    </a>
-
-                                    <a
-                                        href="https://linkedin.com/in/harrison-lanier"
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="flex items-center justify-center space-x-3 w-full px-6 py-3 bg-background-default dark:bg-background-dark border-2 border-primary-main text-primary-main font-medium rounded-lg hover:bg-primary-main/10 dark:hover:bg-primary-main/20 transition-colors"
-                                    >
-                                        <RxLinkedinLogo size={20} />
-                                        <span>LinkedIn</span>
-                                    </a>
-                                </div>
+                                    {submitStatus === "success" && (
+                                        <div className="p-4 rounded-lg bg-status-success/10 border border-status-success/20 text-status-success text-sm">
+                                            Message sent successfully! I'll get back to you soon.
+                                        </div>
+                                    )}
+                                </form>
                             </div>
                         </div>
                     </div>

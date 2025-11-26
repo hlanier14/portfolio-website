@@ -1,6 +1,8 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { resumeUrl } from "../constants";
 
 function Home() {
     const siteUrl = "https://harrisonlanier.com";
@@ -99,8 +101,16 @@ function Home() {
                                 to="/projects"
                                 className="px-8 py-3 md:px-10 md:py-4 bg-transparent border-2 border-surface-border dark:border-surface-border-dark text-text-primary dark:text-text-primary rounded-lg font-medium text-base md:text-lg hover:bg-background-secondary dark:hover:bg-background-dark transition-colors"
                             >
-                                View My Projects
+                                View Projects
                             </Link>
+                            <a
+                                href={resumeUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center justify-center space-x-2 px-8 py-3 md:px-10 md:py-4 bg-transparent border-2 border-surface-border dark:border-surface-border-dark text-text-primary dark:text-text-primary rounded-lg font-medium text-base md:text-lg hover:bg-background-secondary dark:hover:bg-background-dark transition-colors"
+                            >
+                                <span>View Resume</span>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { HiOutlineDocumentText } from "react-icons/hi";
 import InitialsLogo from "./InitialsLogo";
+import { resumeUrl } from "../constants";
 
 function Navigation() {
     const location = useLocation();
@@ -33,7 +35,8 @@ function Navigation() {
     }, [isMobileMenuOpen]);
 
     const navItems = [
-        { path: "/about", label: "About" },
+        { path: "/skills", label: "Skills" },
+        { path: "/experience", label: "Experience" },
         { path: "/projects", label: "Projects" },
         { path: "/contact", label: "Contact" },
     ];
@@ -71,6 +74,14 @@ function Navigation() {
                                     {item.label}
                                 </Link>
                             ))}
+                            <a
+                                href={resumeUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium text-text-secondary hover:bg-background-secondary dark:hover:bg-background-dark transition-colors border border-surface-border dark:border-surface-border-dark hover:border-primary-main/50"
+                            >
+                                <span>Resume</span>
+                            </a>
                         </div>
 
                         {/* Mobile Menu Button */}
@@ -95,13 +106,13 @@ function Navigation() {
                         />
                         <div ref={dropdownRef} className="fixed left-0 right-0 top-16 shadow-lg z-40 md:hidden bg-background-default dark:bg-background-dark-darker border-b border-surface-border dark:border-surface-border-dark">
                             <div className="px-4 py-4">
-                                <nav className="flex flex-col space-y-2">
+                                <nav className="flex flex-col items-center space-y-2">
                                     {navItems.map((item) => (
                                         <Link
                                             key={item.path}
                                             to={item.path}
                                             onClick={() => setIsMobileMenuOpen(false)}
-                                            className={`block px-4 py-2 rounded-lg text-base font-medium transition-colors text-left ${
+                                            className={`block px-4 py-2 rounded-lg text-base font-medium transition-colors text-center w-full ${
                                                 isActive(item.path)
                                                     ? 'bg-primary-main text-primary-text'
                                                     : 'text-text-secondary hover:bg-background-secondary dark:hover:bg-background-dark'
@@ -110,6 +121,15 @@ function Navigation() {
                                             {item.label}
                                         </Link>
                                     ))}
+                                    <a
+                                        href={resumeUrl}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className="flex items-center justify-center space-x-2 px-4 py-2 rounded-lg text-base font-medium text-text-secondary hover:bg-background-secondary dark:hover:bg-background-dark transition-colors text-center w-full border border-surface-border dark:border-surface-border-dark"
+                                    >
+                                        <span>Resume</span>
+                                    </a>
                                 </nav>
                             </div>
                         </div>

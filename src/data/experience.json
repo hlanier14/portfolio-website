@@ -1,10 +1,88 @@
 [
     {
+        "company": "Saavor",
+        "title": "Senior Machine Learning Engineer",
+        "description": "",
+        "location": "Remote",
+        "dateRange": "July 2025 - Present",
+        "logo": "https://media.licdn.com/dms/image/v2/D560BAQEwO0tl7m0LZg/company-logo_200_200/B56ZWV5Wk2GUAM-/0/1741976595152/saavor_inc_logo?e=1766016000&v=beta&t=rfVRu6DJQy6XA7UysDHpY8LG0nOehqdRAQjKGEbnphw",
+        "bulletPoints": [
+            "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
+            "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
+        ],
+        "links": [
+        ], 
+        "isCurrent": true,
+        "skills": [
+            "Amazon S3",
+            "GCP",
+            "Spark",
+            "Docker",
+            "Python",
+            "Google Analytics",
+            "SQL",
+            "Linux",
+            "GitHub"
+        ]
+    }, 
+    {
+        "company": "Yes Energy",
+        "title": "Data Engineer",
+        "description": "",
+        "location": "Chicago, IL",
+        "dateRange": "April 2024 - June 2025",
+        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQEQaaapSJ83Mg/company-logo_200_200/company-logo_200_200/0/1690212911484/yes_energy_logo?e=1766016000&v=beta&t=lv46mo98hpXnvHL6RbXKMsVx6usZt8v6f_ZDi1wgxM0",
+        "bulletPoints": [
+            "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
+            "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
+        ],
+        "links": [
+        ], 
+        "isCurrent": false,
+        "skills": [
+            "Amazon S3",
+            "GCP",
+            "Spark",
+            "Docker",
+            "Python",
+            "Google Analytics",
+            "SQL",
+            "Linux",
+            "GitHub"
+        ]
+    }, 
+    {
+        "company": "Clickvoyant",
+        "title": "Director of Data Science",
+        "description": "",
+        "location": "Remote",
+        "dateRange": "June 2023 - April 2024",
+        "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQE25hn1pz2KsA/company-logo_200_200/company-logo_200_200/0/1641015560548/clickvoyant_logo?e=1766016000&v=beta&t=EeVPHy6b7OIa1Zc4_xSbxit5WaxqmnEnSl24ytXS6Is",
+        "bulletPoints": [
+            "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
+            "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
+        ],
+        "links": [
+        ], 
+        "isCurrent": false,
+        "skills": [
+            "Amazon S3",
+            "GCP",
+            "Spark",
+            "Docker",
+            "Python",
+            "Google Analytics",
+            "SQL",
+            "Linux",
+            "GitHub"
+        ]
+    }, 
+    {
         "company": "Clickvoyant",
         "title": "Data Engineer",
         "description": "",
         "location": "Remote",
-        "dateRange": "February 2023 - Present",
+        "dateRange": "February 2023 - June 2023",
         "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQE25hn1pz2KsA/company-logo_200_200/company-logo_200_200/0/1641015560548/clickvoyant_logo?e=1766016000&v=beta&t=EeVPHy6b7OIa1Zc4_xSbxit5WaxqmnEnSl24ytXS6Is",
         "bulletPoints": [
             "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
@@ -34,8 +112,7 @@
         "logo": "https://i.tracxn.com/logo/company/parkster.ai_Logo_0bba4bfc-23cb-4fc6-a7cd-94438a28f159.jpg",
         "bulletPoints": [
             "Developed a TensorFlow model to detect real-time availability of over 200 parking spaces with 92% accuracy.",
-            "Deployed an application on GCP to analyze parking spot pricing data for event attendees by extracting real-time quotes from 2k+ garages across multiple platforms.",
-            "Constructed a React app allowing team members to add parking spaces to the internal BigQuery database."            
+            "Deployed an application on GCP to analyze parking spot pricing data for event attendees by extracting real-time quotes from 2k+ garages across multiple platforms."
         ],
         "links": [
             {
@@ -51,16 +128,14 @@
         ], 
         "isCurrent": false,
         "skills": [
+            "PyTorch",
             "GCP",
             "Docker",
             "Python",
             "Javascript",
-            "SQL",
-            "Tensorflow",
+            "MySQL",
             "Flask",
-            "React",
-            "ExpressJS",
-            "GitHub"
+            "Git"
         ]
     }, 
     {

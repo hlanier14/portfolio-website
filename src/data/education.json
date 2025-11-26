@@ -1,0 +1,41 @@
+[
+    {
+        "school": "University of Illinois Urbana-Champaign",
+        "degree": "MCS - Data Science",
+        "location": "Remote",
+        "dateRange": "2024 - 2026",
+        "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQGFFDl_Z9pIAA/company-logo_200_200/company-logo_200_200/0/1630611684443/university_of_illinois_at_urbana_champaign_logo?e=1766016000&v=beta&t=qdHuqaw7e5cG0g-k5ZT4smvvGiNhneFIibYDTNkgUIA",
+        "bulletPoints": [
+            "Relevant coursework: Machine Learning, Data Structures, Algorithms, Database Systems, Software Engineering"
+        ],
+        "links": [
+        ],
+        "isCurrent": true,
+        "skills": [
+            "Computer Science",
+            "Machine Learning",
+            "Data Structures",
+            "Algorithms"
+        ]
+    },
+    {
+        "school": "Saint Louis University",
+        "degree": "BS - Data Science",
+        "location": "St. Louis, MO",
+        "dateRange": "2018 - 2022",
+        "logo": "https://media.licdn.com/dms/image/v2/C560BAQEreJCyw0qtHQ/company-logo_200_200/company-logo_200_200/0/1631336781190?e=1766016000&v=beta&t=4nG0AlMFZbQ3Evfn0cQfzjsnGAKN2VSL9LSH1u6GrDQ",
+        "bulletPoints": [
+            "Relevant coursework: Machine Learning, Data Structures, Algorithms, Database Systems, Software Engineering"
+        ],
+        "links": [
+        ],
+        "isCurrent": false,
+        "skills": [
+            "Computer Science",
+            "Machine Learning",
+            "Data Structures",
+            "Algorithms"
+        ]
+    }
+]
+

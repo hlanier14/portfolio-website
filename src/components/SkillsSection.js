@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { HiOutlineSearch } from "react-icons/hi";
 import skills from "../data/skills.json";
 
 function SkillsSection() {
@@ -11,24 +12,43 @@ function SkillsSection() {
         return skill.type;
     })))];
     
+    // Calculate count for each category
+    const getCategoryCount = (type) => {
+        if (type === "All") {
+            return skills.length;
+        }
+        if (type === "Cloud") {
+            return skills.filter(skill => skill.type.startsWith("Cloud -")).length;
+        }
+        return skills.filter(skill => skill.type === type).length;
+    };
+    
     const [selectedFilter, setSelectedFilter] = useState("All");
+    const [searchQuery, setSearchQuery] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 10;
+    const itemsPerPage = 30;
 
-    // Filter skills based on selected filter
-    const filteredSkills = selectedFilter === "All" 
-        ? skills 
-        : skills.filter(skill => {
-            if (selectedFilter === "Cloud") {
-                return skill.type.startsWith("Cloud -");
-            }
-            return skill.type === selectedFilter;
-        });
+    // Filter skills based on selected filter and search query
+    const filteredSkills = skills.filter(skill => {
+        // Filter by category
+        const matchesCategory = selectedFilter === "All" 
+            ? true
+            : selectedFilter === "Cloud"
+                ? skill.type.startsWith("Cloud -")
+                : skill.type === selectedFilter;
+        
+        // Filter by search query
+        const matchesSearch = searchQuery === "" 
+            ? true
+            : skill.name.toLowerCase().includes(searchQuery.toLowerCase());
+        
+        return matchesCategory && matchesSearch;
+    });
 
-    // Reset to page 1 when filter changes
+    // Reset to page 1 when filter or search changes
     useEffect(() => {
         setCurrentPage(1);
-    }, [selectedFilter]);
+    }, [selectedFilter, searchQuery]);
 
     // Calculate pagination
     const totalPages = Math.ceil(filteredSkills.length / itemsPerPage);
@@ -43,29 +63,75 @@ function SkillsSection() {
 
     return (
         <div>
-            <div className="text-2xl mb-6 md:mb-8 text-text-primary">
+            <div className="text-2xl mb-4 md:mb-6 text-text-primary">
                 Skills
             </div>
+            <hr className="h-px mb-6 md:mb-8 border-0 bg-surface-border dark:bg-surface-border-dark" />
             
-            {/* Filter Buttons */}
-            <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
-                {skillTypes.map((type) => (
-                    <button
-                        key={type}
-                        onClick={() => setSelectedFilter(type)}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                            selectedFilter === type
-                                ? 'bg-primary-main text-primary-text'
-                                : 'bg-background-secondary dark:bg-background-dark text-text-secondary hover:opacity-80 border border-surface-border dark:border-surface-border-dark'
-                        }`}
-                    >
-                        {type}
-                    </button>
-                ))}
+            {/* Search Bar - Mobile First */}
+            <div className="mb-6 md:mb-8 lg:hidden">
+                <div className="relative">
+                    <HiOutlineSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-tertiary" size={20} />
+                    <input
+                        type="text"
+                        placeholder="Search skills..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-surface-border dark:border-surface-border-dark bg-background-default dark:bg-background-dark text-text-primary placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-primary-main focus:border-transparent transition-colors"
+                    />
+                </div>
             </div>
+            
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+                {/* Left Sidebar - Filter Buttons (Large Screens) */}
+                <div className="lg:w-48 lg:flex-shrink-0">
+                    <div className="flex flex-col gap-2">
+                        <div className="text-sm font-semibold text-text-secondary mb-2 lg:mb-4">
+                            Categories
+                        </div>
+                        <div className="flex flex-wrap lg:flex-col gap-2">
+                            {skillTypes.map((type) => (
+                                <button
+                                    key={type}
+                                    onClick={() => setSelectedFilter(type)}
+                                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors text-left w-full lg:w-auto flex items-center justify-between ${
+                                        selectedFilter === type
+                                            ? 'bg-primary-main text-primary-text'
+                                            : 'bg-transparent text-text-secondary hover:text-text-primary hover:bg-background-secondary dark:hover:bg-background-dark'
+                                    }`}
+                                >
+                                    <span>{type}</span>
+                                    <span className={`ml-2 text-xs ${
+                                        selectedFilter === type
+                                            ? 'text-primary-text/80'
+                                            : 'text-text-tertiary'
+                                    }`}>
+                                        {getCategoryCount(type)}
+                                    </span>
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+                </div>
 
-            {/* Skills Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+                {/* Right Side - Search (Desktop) and Skills Grid */}
+                <div className="flex-1 min-w-0">
+                    {/* Search Bar - Desktop Only */}
+                    <div className="hidden lg:block mb-6 md:mb-8">
+                        <div className="relative">
+                            <HiOutlineSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-tertiary" size={20} />
+                            <input
+                                type="text"
+                                placeholder="Search skills..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full pl-10 pr-4 py-2 rounded-lg border border-surface-border dark:border-surface-border-dark bg-background-default dark:bg-background-dark text-text-primary placeholder-text-tertiary focus:outline-none focus:ring-2 focus:ring-primary-main focus:border-transparent transition-colors"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Skills Grid */}
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 md:gap-6">
                 {paginatedSkills.map((skill, index) => (
                     <div
                         key={index}
@@ -89,10 +155,10 @@ function SkillsSection() {
                         </span>
                     </div>
                 ))}
-            </div>
+                    </div>
 
-            {/* Pagination Controls */}
-            {totalPages > 1 && (
+                    {/* Pagination Controls */}
+                    {totalPages > 1 && (
                 <div className="flex flex-col items-center gap-4 mt-6 md:mt-8">
                     <div className="flex items-center gap-2">
                         {/* Previous Button */}
@@ -158,9 +224,9 @@ function SkillsSection() {
                         </button>
                     </div>
                 </div>
-            )}
-            
-            <hr className="h-px my-6 md:my-8 border-0 bg-surface-border dark:bg-surface-border-dark"></hr>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }
