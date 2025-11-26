@@ -55,7 +55,7 @@ function Home() {
                     }, null, 0)}
                 </script>
             </Helmet>
-            <section id="home" className="pt-16">
+            <section id="home" className="pt-8 md:pt-16">
             <div className="bg-background-default dark:bg-background-dark min-h-screen flex items-center justify-center">
                 <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
                     <div className="flex flex-col items-center text-center space-y-6 md:space-y-8">
@@ -89,7 +89,6 @@ function Home() {
                             </p>
                         </div>
 
-                        {/* Action Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-10">
                             <Link
                                 to="/contact"
@@ -97,20 +96,24 @@ function Home() {
                             >
                                 Contact Me
                             </Link>
-                            <Link
-                                to="/projects"
-                                className="px-8 py-3 md:px-10 md:py-4 bg-transparent border-2 border-surface-border dark:border-surface-border-dark text-text-primary dark:text-text-primary rounded-lg font-medium text-base md:text-lg hover:bg-background-secondary dark:hover:bg-background-dark transition-colors"
-                            >
-                                View Projects
-                            </Link>
-                            <a
-                                href={resumeUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="flex items-center justify-center space-x-2 px-8 py-3 md:px-10 md:py-4 bg-transparent border-2 border-surface-border dark:border-surface-border-dark text-text-primary dark:text-text-primary rounded-lg font-medium text-base md:text-lg hover:bg-background-secondary dark:hover:bg-background-dark transition-colors"
-                            >
-                                <span>View Resume</span>
-                            </a>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-2 mt-8 md:mt-10">
+                            <div className="flex flex-row gap-4">
+                                <Link
+                                    to="/projects"
+                                    className="flex-1 px-8 py-3 md:px-10 md:py-4 bg-transparent border-2 border-surface-border dark:border-surface-border-dark text-text-primary dark:text-text-primary rounded-lg font-medium text-base md:text-lg hover:bg-background-secondary dark:hover:bg-background-dark transition-colors text-center"
+                                >
+                                    Projects
+                                </Link>
+                                <a
+                                    href={resumeUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="flex-1 flex items-center justify-center space-x-2 px-8 py-3 md:px-10 md:py-4 bg-transparent border-2 border-surface-border dark:border-surface-border-dark text-text-primary dark:text-text-primary rounded-lg font-medium text-base md:text-lg hover:bg-background-secondary dark:hover:bg-background-dark transition-colors"
+                                >
+                                    <span>Resume</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

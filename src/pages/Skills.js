@@ -21,7 +21,7 @@ function Skills() {
             </Helmet>
             <section id="skills" className="bg-background-default dark:bg-background-dark pt-16">
                 <div className="flex min-h-screen w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-flow-row auto-rows-auto gap-4 mt-16 mb-32 w-full">
+                    <div className="grid grid-flow-row auto-rows-auto gap-4 mt-8 md:mt-16 mb-32 w-full">
                         <SkillsSection />
                     </div>
                 </div>
