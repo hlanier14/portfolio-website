@@ -20,7 +20,8 @@ function ExperienceSection() {
                                 company={item.company}
                                 title={item.title}
                                 dateRange={item.dateRange}
-                                description={item.bulletPoints}
+                                description={item.description}
+                                bulletPoints={item.bulletPoints}
                                 location={item.location}
                                 links={item.links}
                                 isCurrent={item.isCurrent}

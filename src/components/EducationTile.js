@@ -34,7 +34,7 @@ function EducationTile({ school, degree, dateRange, description, location, links
                         : 'border-surface-border dark:border-surface-border-dark hover:border-primary-main/50 dark:hover:border-primary-main/50'
                 }`}
             >
-                <div className="flex gap-4">
+                <div className="flex gap-4 items-center">
                     {logo && (
                         <div className="flex-shrink-0">
                             <img 
@@ -45,7 +45,7 @@ function EducationTile({ school, degree, dateRange, description, location, links
                         </div>
                     )}
                     <div className="flex-1 space-y-2">
-                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                             <h3 className="text-lg text-text-primary">
                                 <span className="font-semibold">{degree}</span>, {school}
                             </h3>
@@ -53,14 +53,6 @@ function EducationTile({ school, degree, dateRange, description, location, links
                                 {dateRange}
                             </time>
                         </div>
-                        
-                        {description && description.length > 0 && (
-                            <div className="pt-1">
-                                <p className="text-sm text-text-secondary line-clamp-2">
-                                    {description[0]}
-                                </p>
-                            </div>
-                        )}
                     </div>
                 </div>
             </div>

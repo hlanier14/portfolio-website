@@ -2,117 +2,109 @@
     {
         "company": "Saavor",
         "title": "Senior Machine Learning Engineer",
-        "description": "",
+        "description": "Owned the full MLOps lifecycle for Saavor's AI product, from research to production.",
         "location": "Remote",
         "dateRange": "July 2025 - Present",
         "logo": "https://media.licdn.com/dms/image/v2/D560BAQEwO0tl7m0LZg/company-logo_200_200/B56ZWV5Wk2GUAM-/0/1741976595152/saavor_inc_logo?e=1766016000&v=beta&t=rfVRu6DJQy6XA7UysDHpY8LG0nOehqdRAQjKGEbnphw",
         "bulletPoints": [
-            "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
-            "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
+            "Designed and deployed an edge, multi-stage computer vision system using detection, feature embeddings, and FAISS similarity search, improving item-level accuracy across 160+ classes to over 90%.",
+            "Built an end-to-end MLOps pipeline to automate dataset creation, model training, batch inference, and evaluation, cutting manual labeling by X%."
         ],
         "links": [
         ], 
         "isCurrent": true,
         "skills": [
-            "Amazon S3",
-            "GCP",
-            "Spark",
+            "PyTorch",
+            "SageMaker",
             "Docker",
             "Python",
-            "Google Analytics",
-            "SQL",
-            "Linux",
-            "GitHub"
+            "FAISS",
+            "Computer Vision",
+            "MLOps",
+            "Git"
         ]
     }, 
     {
         "company": "Yes Energy",
         "title": "Data Engineer",
-        "description": "",
+        "description": "Led a full redesign of Yes Energy's data collection architecture that reduced time to build new data collection pipelines by 54%.",
         "location": "Chicago, IL",
         "dateRange": "April 2024 - June 2025",
         "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQEQaaapSJ83Mg/company-logo_200_200/company-logo_200_200/0/1690212911484/yes_energy_logo?e=1766016000&v=beta&t=lv46mo98hpXnvHL6RbXKMsVx6usZt8v6f_ZDi1wgxM0",
         "bulletPoints": [
-            "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
-            "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
+            "Led a full redesign of the company’s data collection architecture (Spring Boot, Kafka, Kubernetes), reducing time to build new data collection pipelines by 54%.",
+            "Owned and maintained an internal API that cut pipeline deployment time by more than 50%."
         ],
         "links": [
         ], 
         "isCurrent": false,
         "skills": [
-            "Amazon S3",
-            "GCP",
-            "Spark",
+            "Spring Boot",
+            "Kafka",
+            "Kubernetes",
             "Docker",
-            "Python",
-            "Google Analytics",
-            "SQL",
+            "Java",
             "Linux",
-            "GitHub"
+            "Git"
         ]
     }, 
     {
         "company": "Clickvoyant",
         "title": "Director of Data Science",
-        "description": "",
+        "description": "Scaled Clickvoyant's infrastructure to support 400% more data processing capacity.",
         "location": "Remote",
         "dateRange": "June 2023 - April 2024",
         "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQE25hn1pz2KsA/company-logo_200_200/company-logo_200_200/0/1641015560548/clickvoyant_logo?e=1766016000&v=beta&t=EeVPHy6b7OIa1Zc4_xSbxit5WaxqmnEnSl24ytXS6Is",
         "bulletPoints": [
-            "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
-            "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
+            "Enhanced performance of AWS EKS cluster, resulting in a 45% reduction in report generation time while supporting a 400% increase in data processing capacity."
         ],
         "links": [
         ], 
         "isCurrent": false,
         "skills": [
-            "Amazon S3",
-            "GCP",
-            "Spark",
+            "EKS",
+            "Airflow",
+            "PySpark",
             "Docker",
+            "GA4",
             "Python",
-            "Google Analytics",
-            "SQL",
-            "Linux",
-            "GitHub"
+            "Git"
         ]
     }, 
     {
         "company": "Clickvoyant",
         "title": "Data Engineer",
-        "description": "",
+        "description": "Reduced cloud infrastructure costs by 49% by migrating the data application from KNIME to an AWS EKS cluster.",
         "location": "Remote",
         "dateRange": "February 2023 - June 2023",
         "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQE25hn1pz2KsA/company-logo_200_200/company-logo_200_200/0/1641015560548/clickvoyant_logo?e=1766016000&v=beta&t=EeVPHy6b7OIa1Zc4_xSbxit5WaxqmnEnSl24ytXS6Is",
         "bulletPoints": [
-            "Migrated the backend from a KNIME server to a Python application hosted on GCP, saving $12k annually.",
-            "Built an optimized ETL pipeline with PySpark, analyzing Google Analytics data and presenting insights to clients on how to boost website conversions."
+            "Achieved a 49% reduction in cloud infrastructure costs by migrating the data application from KNIME to an AWS EKS cluster, using Airflow for job scheduling and PySpark for data processing.",
+            "Engineered ETL modules to extract data from GA4 into AWS S3 buckets, conducted in-depth data analysis using statistical packages like scikit-learn, and crafted automated client reports including visualizations of the insights."
         ],
         "links": [
         ], 
         "isCurrent": false,
         "skills": [
-            "Amazon S3",
-            "GCP",
-            "Spark",
+            "EKS",
+            "Airflow",
+            "PySpark",
             "Docker",
+            "GA4",
             "Python",
-            "Google Analytics",
-            "SQL",
-            "Linux",
-            "GitHub"
+            "Git"
         ]
     }, 
     {
         "company": "Parkster.ai",
         "title": "Co-Founder & CTO",
-        "description": "",
+        "description": "Co-founded and led the technical development of Parkster.ai, a real-time parking availability detection platform.",
         "location": "Chicago, IL",
         "dateRange": "August 2022 - February 2023",
         "logo": "https://i.tracxn.com/logo/company/parkster.ai_Logo_0bba4bfc-23cb-4fc6-a7cd-94438a28f159.jpg",
         "bulletPoints": [
-            "Developed a TensorFlow model to detect real-time availability of over 200 parking spaces with 92% accuracy.",
-            "Deployed an application on GCP to analyze parking spot pricing data for event attendees by extracting real-time quotes from 2k+ garages across multiple platforms."
+            "Implemented a real-time parking availability detection model using PyTorch, achieving 92% accuracy in predicting the status of over 200 parking spaces.",
+            "Developed and deployed a GCP Cloud Run service that extracted real-time parking spot pricing data from over 2,000 garages, stored it in BigQuery, and served a customer-facing website."
         ],
         "links": [
             {
@@ -129,7 +121,8 @@
         "isCurrent": false,
         "skills": [
             "PyTorch",
-            "GCP",
+            "Cloud Run",
+            "BigQuery",
             "Docker",
             "Python",
             "Javascript",
@@ -141,13 +134,12 @@
     {
         "company": "Saint Louis University",
         "title": "Research Assistant",
-        "description": "",
+        "description": "Finetuned a PyTorch model to detect furniture in hotel room images for TraffickCam, a project employed by the National Center for Missing and Exploited Children.",
         "location": "St. Louis, MO",
         "dateRange": "June 2022 - August 2022",
         "logo": "https://imageio.forbes.com/specials-images/imageserve/5d52c52268cb0a000916d259/0x0.jpg?format=jpg&crop=416,416,x0,y0,safe&height=200&width=200&fit=bounds",
         "bulletPoints": [
-            "Designed a Flask application for annotating bounding boxes on images and stored changes in a SQL database.",
-            "Trained a PyTorch model to detect furniture in hotel room images for TraffickCam (traffickcam.com)."     
+            "Finetuned a PyTorch model to detect furniture in hotel room images for TraffickCam, a project employed by the National Center for Missing and Exploited Children."   
         ],
         "links": [
             {

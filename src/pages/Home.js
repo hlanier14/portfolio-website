@@ -73,19 +73,18 @@ function Home() {
                         {/* Name */}
                         <div className="space-y-3">
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-text-primary tracking-tight">
-                                Harrison Lanier
+                                <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-text-secondary mt-2">Hi, I'm</span>
+                                <span className="block">Harrison Lanier,</span>
+                                <span className="block text-xl md:text-2xl lg:text-3xl font-medium text-text-secondary mt-2">
+                                    a machine learning engineer in the startup space.
+                                </span>
                             </h1>
-                            
-                            {/* Title */}
-                            <p className="text-xl md:text-2xl lg:text-3xl text-text-secondary font-medium">
-                                Machine Learning Engineer
-                            </p>
                         </div>
 
                         {/* Description */}
                         <div className="max-w-2xl mt-4">
                             <p className="text-base md:text-lg lg:text-xl text-text-secondary leading-relaxed">
-                                Machine Learning Engineer with expertise in PyTorch, TensorFlow, and production ML systems. Recent Techstars Powered by JP Morgan alum with hands-on experience building and deploying ML models in production environments.
+                                I build and deploy production ML systems, taking models from research to production. Specializing in computer vision, scalable data pipelines, and MLOps.
                             </p>
                         </div>
 

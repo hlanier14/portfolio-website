@@ -7,7 +7,7 @@ import {
     HiX 
 } from "react-icons/hi";
 
-function ExperienceTile({ company, title, dateRange, description, location, links, isCurrent, skills, logo }) {
+function ExperienceTile({ company, title, dateRange, description, bulletPoints, location, links, isCurrent, skills, logo }) {
     const [showModal, setShowModal] = useState(false);
 
     const handleTileClick = (e) => {
@@ -57,7 +57,7 @@ function ExperienceTile({ company, title, dateRange, description, location, link
                         {description && description.length > 0 && (
                             <div className="pt-1">
                                 <p className="text-sm text-text-secondary line-clamp-2">
-                                    {description[0]}
+                                    {description}
                                 </p>
                             </div>
                         )}
@@ -140,7 +140,7 @@ function ExperienceTile({ company, title, dateRange, description, location, link
 
                             <div className="flex flex-col md:flex-row gap-6">
                                 <div className="md:w-3/5 space-y-5">
-                                    {description && description.length > 0 && (
+                                    {bulletPoints && bulletPoints.length > 0 && (
                                         <div className="space-y-4">
                                             <div className="flex items-center justify-between">
                                                 <h4 className="text-lg font-semibold text-text-primary">
@@ -149,7 +149,7 @@ function ExperienceTile({ company, title, dateRange, description, location, link
                                                 <span className="hidden md:inline-flex h-px w-24 bg-surface-border/60 dark:bg-surface-border-dark/60"></span>
                                             </div>
                                             <div className="space-y-3">
-                                                {description.map(function(item, index){
+                                                {bulletPoints.map(function(item, index){
                                                     return (
                                                         <div key={index} className="flex items-start gap-3">
                                                             <span className="mt-2 h-2 w-2 rounded-full bg-primary-main shadow-[0_0_8px_rgba(59,130,246,0.45)]"></span>
