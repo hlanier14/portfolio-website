@@ -5,6 +5,7 @@ import {
     HiOutlineLink, 
     HiX 
 } from "react-icons/hi";
+import { trackProjectClick } from "../utils/analytics";
 
 function ProjectTile({ title, shortDescription, subtitle, date, coverImage, link }) {
     const [showModal, setShowModal] = useState(false);
@@ -14,6 +15,8 @@ function ProjectTile({ title, shortDescription, subtitle, date, coverImage, link
         if (e.target.closest('a')) {
             return;
         }
+        // Track the click
+        trackProjectClick(title);
         setShowModal(true);
     };
 

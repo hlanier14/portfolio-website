@@ -12,11 +12,11 @@ function Projects() {
                 <title>ML Projects - Harrison Lanier | Machine Learning Engineer Portfolio</title>
                 <meta
                     name="description"
-                    content="View Harrison Lanier's machine learning and data engineering projects. ML Engineer portfolio featuring computer vision models, production ML systems, and data pipelines."
+                    content="Machine Learning Engineer with expertise in PyTorch, TensorFlow, and production ML systems. Recent Techstars Powered by JP Morgan alum with hands-on experience building and deploying ML models in production environments."
                 />
                 <link rel="canonical" href={`${siteUrl}/projects`} />
                 <meta property="og:title" content="ML Projects - Harrison Lanier | Machine Learning Engineer Portfolio" />
-                <meta property="og:description" content="View Harrison Lanier's machine learning and data engineering projects. ML Engineer portfolio featuring computer vision models, production ML systems, and data pipelines." />
+                <meta property="og:description" content="Machine Learning Engineer with expertise in PyTorch, TensorFlow, and production ML systems. Recent Techstars Powered by JP Morgan alum with hands-on experience building and deploying ML models in production environments." />
                 <meta property="og:url" content={`${siteUrl}/projects`} />
                 <meta property="og:type" content="website" />
                 <script type="application/ld+json">

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { HiOutlineDocumentText } from "react-icons/hi";
 import InitialsLogo from "./InitialsLogo";
 import { resumeUrl } from "../constants";
 
@@ -11,7 +10,6 @@ function Navigation() {
     const dropdownRef = useRef(null);
     const buttonRef = useRef(null);
 
-    // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (
@@ -35,7 +33,6 @@ function Navigation() {
     }, [isMobileMenuOpen]);
 
     const navItems = [
-        { path: "/skills", label: "Skills" },
         { path: "/experience", label: "Experience" },
         { path: "/projects", label: "Projects" },
         { path: "/contact", label: "Contact" },

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import { HiOutlineMail } from "react-icons/hi";
 import { RxLinkedinLogo } from "react-icons/rx";
+import { trackFormInteraction } from "../utils/analytics";
 
 function Contact() {
     const siteUrl = "https://harrisonlanier.com";
@@ -13,6 +14,7 @@ function Contact() {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null);
+    const hasTrackedFormStart = useRef(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -20,6 +22,12 @@ function Contact() {
             ...prev,
             [name]: value,
         }));
+        
+        // Track form start on first interaction
+        if (!hasTrackedFormStart.current) {
+            trackFormInteraction("contact_form", "start");
+            hasTrackedFormStart.current = true;
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -27,10 +35,19 @@ function Contact() {
         setIsSubmitting(true);
         setSubmitStatus(null);
 
+        // Track form submission
+        trackFormInteraction("contact_form", "submit", {
+            form_fields: Object.keys(formData).join(", "),
+        });
+
         // Simulate form submission (you can integrate with a backend service later)
         setTimeout(() => {
             setIsSubmitting(false);
             setSubmitStatus("success");
+            
+            // Track form success
+            trackFormInteraction("contact_form", "success");
+            
             setFormData({ name: "", email: "", message: "" });
             
             // Clear success message after 5 seconds
@@ -46,11 +63,11 @@ function Contact() {
                 <title>Contact - Harrison Lanier | Machine Learning Engineer</title>
                 <meta
                     name="description"
-                    content="Contact Harrison Lanier - Machine Learning Engineer. Get in touch for ML engineering collaborations, questions, or opportunities."
+                    content="Machine Learning Engineer with expertise in PyTorch, TensorFlow, and production ML systems. Recent Techstars Powered by JP Morgan alum with hands-on experience building and deploying ML models in production environments."
                 />
                 <link rel="canonical" href={`${siteUrl}/contact`} />
                 <meta property="og:title" content="Contact - Harrison Lanier | Machine Learning Engineer" />
-                <meta property="og:description" content="Contact Harrison Lanier - Machine Learning Engineer. Get in touch for ML engineering collaborations, questions, or opportunities." />
+                <meta property="og:description" content="Machine Learning Engineer with expertise in PyTorch, TensorFlow, and production ML systems. Recent Techstars Powered by JP Morgan alum with hands-on experience building and deploying ML models in production environments." />
                 <meta property="og:url" content={`${siteUrl}/contact`} />
                 <meta property="og:type" content="website" />
                 <script type="application/ld+json">

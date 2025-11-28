@@ -84,7 +84,7 @@ function Home() {
                         {/* Description */}
                         <div className="max-w-2xl mt-4">
                             <p className="text-base md:text-lg lg:text-xl text-text-secondary leading-relaxed">
-                                I build and deploy production ML systems, taking models from research to production. Specializing in computer vision, scalable data pipelines, and MLOps.
+                                I build and deploy production ML systems, taking models from research to production. Specializing in scalable data pipelines, computer vision, and MLOps.
                             </p>
                         </div>
 

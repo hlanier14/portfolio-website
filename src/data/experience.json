@@ -14,13 +14,14 @@
         ], 
         "isCurrent": true,
         "skills": [
+            "AWS SageMaker",
             "PyTorch",
-            "SageMaker",
+            "Computer Vision",
+            "MLOps",
+            "AWS ECS",
             "Docker",
             "Python",
             "FAISS",
-            "Computer Vision",
-            "MLOps",
             "Git"
         ]
     }, 
@@ -62,9 +63,10 @@
         ], 
         "isCurrent": false,
         "skills": [
-            "EKS",
+            "AWS EKS",
             "Airflow",
             "PySpark",
+            "Kubernetes",
             "Docker",
             "GA4",
             "Python",
@@ -74,7 +76,7 @@
     {
         "company": "Clickvoyant",
         "title": "Data Engineer",
-        "description": "Reduced cloud infrastructure costs by 49% by migrating the data application from KNIME to an AWS EKS cluster.",
+        "description": "Reduced cloud infrastructure costs by 49% by migrating the data application from KNIME to an AWS EKS kubernetes cluster.",
         "location": "Remote",
         "dateRange": "February 2023 - June 2023",
         "logo": "https://media.licdn.com/dms/image/v2/C4E0BAQE25hn1pz2KsA/company-logo_200_200/company-logo_200_200/0/1641015560548/clickvoyant_logo?e=1766016000&v=beta&t=EeVPHy6b7OIa1Zc4_xSbxit5WaxqmnEnSl24ytXS6Is",
@@ -86,10 +88,11 @@
         ], 
         "isCurrent": false,
         "skills": [
-            "EKS",
+            "AWS EKS",
             "Airflow",
             "PySpark",
             "Docker",
+            "Kubernetes",
             "GA4",
             "Python",
             "Git"
@@ -120,9 +123,10 @@
         ], 
         "isCurrent": false,
         "skills": [
+            "GCP Cloud Run",
             "PyTorch",
-            "Cloud Run",
-            "BigQuery",
+            "Computer Vision",
+            "GCP BigQuery",
             "Docker",
             "Python",
             "Javascript",
@@ -150,12 +154,12 @@
         ],
         "isCurrent": false,
         "skills": [
+            "PyTorch",
+            "Flask",
             "Python",
             "SQL",
-            "PyTorch",
             "CUDA",
-            "Flask",
-            "GitHub"
+            "Git"
         ]
     }
 ]

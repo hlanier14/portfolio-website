@@ -6,6 +6,7 @@ import {
     HiOutlineLocationMarker, 
     HiX 
 } from "react-icons/hi";
+import { trackEducationClick } from "../utils/analytics";
 
 function EducationTile({ school, degree, dateRange, description, location, links, skills, logo, isCurrent }) {
     const [showModal, setShowModal] = useState(false);
@@ -15,6 +16,8 @@ function EducationTile({ school, degree, dateRange, description, location, links
         if (e.target.closest('a')) {
             return;
         }
+        // Track the click
+        trackEducationClick(school, degree);
         setShowModal(true);
     };
 

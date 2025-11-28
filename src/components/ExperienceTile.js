@@ -6,6 +6,7 @@ import {
     HiOutlineLocationMarker, 
     HiX 
 } from "react-icons/hi";
+import { trackExperienceClick } from "../utils/analytics";
 
 function ExperienceTile({ company, title, dateRange, description, bulletPoints, location, links, isCurrent, skills, logo }) {
     const [showModal, setShowModal] = useState(false);
@@ -15,6 +16,8 @@ function ExperienceTile({ company, title, dateRange, description, bulletPoints, 
         if (e.target.closest('a')) {
             return;
         }
+        // Track the click
+        trackExperienceClick(company, title);
         setShowModal(true);
     };
 
@@ -59,6 +62,27 @@ function ExperienceTile({ company, title, dateRange, description, bulletPoints, 
                                 <p className="text-sm text-text-secondary line-clamp-2">
                                     {description}
                                 </p>
+                            </div>
+                        )}
+                        {skills && skills.length > 0 && (
+                            <div className="pt-2">
+                                <div className="flex flex-wrap gap-1.5">
+                                    {skills.slice(0, 3).map(function(item, index){
+                                        return (
+                                            <span 
+                                                key={index} 
+                                                className="inline-flex items-center rounded-full border border-primary-main/30 bg-primary-main/10 px-2 py-0.5 text-xs font-medium text-primary-active dark:text-primary-main"
+                                            >
+                                                {item}
+                                            </span>
+                                        );
+                                    })}
+                                    {skills.length > 5 && (
+                                        <span className="inline-flex items-center rounded-full border border-surface-border/50 dark:border-surface-border-dark/50 bg-background-secondary dark:bg-background-dark-darker px-2 py-0.5 text-xs font-medium text-text-secondary">
+                                            +{skills.length - 3} more
+                                        </span>
+                                    )}
+                                </div>
                             </div>
                         )}
                     </div>
